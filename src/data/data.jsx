@@ -11,28 +11,30 @@ import {
 import { MdOutlineSettingsApplications } from "react-icons/md";
 import {
   SiC,
+  SiCanva,
   SiCplusplus,
-  SiExpress,
   SiFigma,
-  SiFirebase,
   SiGit,
   SiGithub,
+  SiGitlab,
+  SiIntellijidea,
   SiJavascript,
   SiMongodb,
   SiMysql,
   SiNetlify,
+  SiPhp,
   SiPostgresql,
   SiPostman,
-  SiRedux,
+  SiPycharm,
   SiSpring,
   SiTypescript,
   SiVercel,
+  SiWebstorm,
 } from "react-icons/si";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { GiMaterialsScience, GiSandsOfTime } from "react-icons/gi";
 import { DiJava, DiPython, DiVisualstudio } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
-import { IoIosStarOutline } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
 import { LuCircleUser, LuContact } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
@@ -77,10 +79,9 @@ export const skillsData = [
     title: "Languages",
     skills: [
       { name: "C", icon: <SiC className="text-blue-400" /> },
-      { name: "C++", icon: <SiCplusplus className="text-blue-500" /> },
+      { name: "PHP", icon: <SiPhp className="text-indigo-500" /> },
       { name: "Java", icon: <DiJava className="text-red-600" /> },
       { name: "Python", icon: <DiPython className="text-yellow-400" /> },
-      { name: "C#", icon: <TbBrandCSharp className="text-purple-400" /> },
       {
         name: "JavaScript",
         icon: <SiJavascript className="text-yellow-400" />,
@@ -93,11 +94,19 @@ export const skillsData = [
     skills: [
       { name: "Git", icon: <SiGit className="text-orange-500" /> },
       { name: "GitHub", icon: <SiGithub className="text-white" /> },
+      { name: "GitLab", icon: <SiGitlab className="text-orange-500" /> },
       { name: "VS Code", icon: <DiVisualstudio className="text-blue-500" /> },
+      {
+        name: "IntelliJ IDEA",
+        icon: <SiIntellijidea className="text-[#087CFA]" />,
+      },
+      { name: "WebStorm", icon: <SiWebstorm className="text-[#00CFFF]" /> },
+      { name: "PyCharm", icon: <SiPycharm className="text-[#21D789]" /> },
       { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
       { name: "Vercel", icon: <SiVercel className="text-white" /> },
       { name: "Netlify", icon: <SiNetlify className="text-teal-400" /> },
       { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
+      { name: "Canva", icon: <SiCanva className="text-[#00C4CC]" /> },
     ],
   },
 ];
@@ -145,18 +154,36 @@ export const portfolioItems = [
     category: "Web Design",
     image:
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    link: "https://example.com/ecommerce",
   },
   {
     title: "Fitness App UI",
     category: "UI/UX Design",
     image:
       "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    link: "https://example.com/fitnessapp",
   },
   {
     title: "Analytics Dashboard",
     category: "Web Development",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
+    link: "https://example.com/analytics",
+  },
+  {
+    title: "Testing Project 1",
+    category: "Full-Stack Development",
+    image:
+      "https://images.unsplash.com/photo-1626968361222-291e74711449?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    link: "https://example.com/testingproject1",
+  },
+
+  {
+    title: "Testing Project 2",
+    category: "UI/UX Design",
+    image:
+      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    link: "https://example.com/testingproject2",
   },
 ];
 export const experiences = [
@@ -186,7 +213,7 @@ export const experiences = [
     company: "National Incubation & Research Center",
     logo: nirc, // replace with actual logo
     title: "Front-End Developer",
-    period: "Oct 2023 - Jul 2024", // 👈 also fixed the period order (earlier to later)
+    period: "Oct 2023 - Jul 2024", //
     description:
       "Designed and implemented responsive, user-friendly interfaces using modern frontend technologies. Collaborated with designers and backend developers to deliver seamless user experiences. Optimized web applications for performance, accessibility, and cross-browser compatibility.",
     skills: [

@@ -8,7 +8,7 @@ import {
   FaViber,
 } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
-import user from "../assets/hero/pic.png";
+import user from "../assets/hero/pic3.png";
 
 const Home = () => {
   return (
@@ -103,7 +103,7 @@ const Home = () => {
             <img
               src={user}
               alt="Hero"
-              className="w-full h-full md:h-116 object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full md:h-115 object-cover transition-transform duration-500 group-hover:scale-110"
             />
           </div>
         </div>

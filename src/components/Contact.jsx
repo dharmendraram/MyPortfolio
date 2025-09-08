@@ -1,6 +1,13 @@
 import React from "react";
-import { BsGithub, BsInstagram, BsWhatsapp } from "react-icons/bs";
-import { FaFacebook, FaLinkedin, FaLocationArrow } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaLocationArrow,
+  FaViber,
+} from "react-icons/fa";
+import { BsWhatsapp } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { PiPhone } from "react-icons/pi";
 
@@ -63,37 +70,47 @@ const Contact = () => {
               <div className="flex gap-4 text-white/60">
                 <a
                   href=""
-                  className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                  className="p-2 border border-[#0A63BC] text-[#298bec]  backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
                 >
+                  {" "}
                   <FaFacebook />
                 </a>
-
                 <a
                   href=""
-                  className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                  className="p-2 border border-gray-600 text-[#298bec]  backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
                 >
-                  <BsGithub />
+                  {" "}
+                  <FaGithub />
                 </a>
 
                 <a
                   href=""
-                  className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                  className="p-2 border border-[#E1306C] text-[#E1306C] backdrop-blur-md rounded-full hover:bg-[#E1306C] transition-colors cursor-pointer hover:text-white"
                 >
+                  <FaInstagram />
+                </a>
+
+                <a
+                  href=""
+                  className="p-2 border border-[#0A63BC] text-[#298bec] backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                >
+                  {" "}
                   <FaLinkedin />
                 </a>
 
                 <a
                   href=""
-                  className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                  className="p-2 border border-[#46C254] text-[#46C254] backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
                 >
-                  <BsInstagram />
+                  {" "}
+                  <BsWhatsapp />
                 </a>
 
                 <a
                   href=""
-                  className="p-3 bg-white/10 backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+                  className="p-2 border border-[#7360F2] text-[#7360F2] backdrop-blur-md rounded-full hover:bg-[#7360F2] transition-colors cursor-pointer hover:text-white"
                 >
-                  <BsWhatsapp />
+                  <FaViber />
                 </a>
               </div>
             </div>
@@ -107,11 +124,15 @@ const Contact = () => {
               <div className="flex flex-col gap-4 md:flex-row">
                 <input
                   type="text"
+                  id="fullname"
+                  name="fullname"
                   placeholder="Your Name"
                   className="bg-transparent border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-teal-700 transition md:w-[50%]"
                 />
                 <input
                   type="email"
+                  id="email"
+                  name="email"
                   placeholder="Your Email"
                   className="bg-transparent border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-teal-700 transition md:w-[50%]"
                 />
@@ -119,11 +140,15 @@ const Contact = () => {
 
               <input
                 type="text"
+                id="subject"
+                name="subject"
                 placeholder="Your Subject"
                 className="bg-transparent border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-teal-700 transition"
               />
               <textarea
                 rows="5"
+                id="message"
+                name="message"
                 placeholder="Your Message"
                 className="bg-transparent border border-white/20 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-teal-700 transition"
               ></textarea>

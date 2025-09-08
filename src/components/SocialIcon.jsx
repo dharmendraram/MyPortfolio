@@ -1,6 +1,12 @@
 import React from "react";
 import { BsWhatsapp } from "react-icons/bs";
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaViber } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaViber,
+} from "react-icons/fa";
 
 const SocialIcon = () => {
   return (
