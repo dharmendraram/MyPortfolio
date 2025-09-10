@@ -34,14 +34,16 @@ const Home = () => {
 
           <div className="flex gap-3 justify-center md:justify-start mt-4 text-white/40">
             <a
-              href=""
+              href="https://www.facebook.com/dharmendra.ram5073"
+              target="_blank"
               className="p-2 border border-[#0A63BC] text-[#298bec]  backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
             >
               {" "}
               <FaFacebook />
             </a>
             <a
-              href=""
+              href="https://github.com/dharmendraram"
+              target="_blank"
               className="p-2 border border-gray-600 text-[#298bec]  backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
             >
               {" "}
@@ -49,14 +51,16 @@ const Home = () => {
             </a>
 
             <a
-              href=""
+              href="https://www.instagram.com/dharmendraram5073/"
+              target="_blank"
               className="p-2 border border-[#E1306C] text-[#E1306C] backdrop-blur-md rounded-full hover:bg-[#E1306C] transition-colors cursor-pointer hover:text-white"
             >
               <FaInstagram />
             </a>
 
             <a
-              href=""
+              href="https://www.linkedin.com/in/dharmendra-kumar-ram-14a660279/"
+              target="_blank"
               className="p-2 border border-[#0A63BC] text-[#298bec] backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
             >
               {" "}
@@ -64,7 +68,8 @@ const Home = () => {
             </a>
 
             <a
-              href=""
+              href="https://wa.me/9779819745073"
+              target="_blank"
               className="p-2 border border-[#46C254] text-[#46C254] backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
             >
               {" "}
@@ -72,7 +77,8 @@ const Home = () => {
             </a>
 
             <a
-              href=""
+              href="viber://chat?number=+9779819745073"
+              target="_blank"
               className="p-2 border border-[#7360F2] text-[#7360F2] backdrop-blur-md rounded-full hover:bg-[#7360F2] transition-colors cursor-pointer hover:text-white"
             >
               <FaViber />
