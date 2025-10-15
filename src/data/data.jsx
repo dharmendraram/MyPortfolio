@@ -40,7 +40,8 @@ import { LuCircleUser, LuContact } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
 
 import nirc from "../assets/nirc.png";
-
+import rakmina from "../assets/portfolio/rakmina.png";
+import imgportfolio from "../assets/portfolio/personal.png";
 export const skillsData = [
   {
     title: "Frontend",
@@ -150,40 +151,25 @@ export const testimonials = [
 // Portfolio data
 export const portfolioItems = [
   {
-    title: "E-commerce Website",
-    category: "Web Design",
-    image:
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    link: "",
-  },
-  {
-    title: "Fitness App UI",
-    category: "UI/UX Design",
-    image:
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    link: "",
-  },
-  {
-    title: "Analytics Dashboard",
-    category: "Web Development",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
-    link: "",
-  },
-  {
-    title: "Testing Project 1",
-    category: "Full-Stack Development",
-    image:
-      "https://images.unsplash.com/photo-1626968361222-291e74711449?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "",
-  },
+    title: "Rakmina Recruitment & Migration Platform",
+    category: "Web Design and Development",
+    image: rakmina,
+    technology: ["Next.js", "TailWind CSS", "Django rest framework API"],
+    github: "",
 
+    link: "https://rakmina.nirc.com.np/",
+    description:
+      "A professional recruitment and migration portal that connects Nepali talent with global career opportunities, offering end-to-end support from job search to visa processing.",
+  },
   {
-    title: "Testing Project 2",
-    category: "UI/UX Design",
-    image:
-      "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "",
+    title: "Portfolio Website",
+    category: "Web design & Development",
+    image: imgportfolio,
+    technology: ["React.js", "TailWind CSS", "JavaScript"],
+    github: "https://github.com/dharmendraram/MyPortfolio",
+    link: "http://dharmendraram.com.np/",
+    description:
+      "A modern fitness tracking app UI with personalized dashboard and activity insights.",
   },
 ];
 export const experiences = [
