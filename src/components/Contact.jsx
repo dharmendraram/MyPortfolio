@@ -46,8 +46,14 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">E-mail</h4>
-                  <p className=" text-neutral-400">
-                    dharmendraram7852@gmail.com
+                  <p className="text-neutral-400">
+                    <a href="mailto:dharmendraram7852@gmail.com">
+                      dharmendraram7852@gmail.com
+                    </a>
+                    ,{" "}
+                    <a href="mailto:dev.dharmendra.ram@gmail.com">
+                      dev.dharmendra.ram@gmail.com
+                    </a>
                   </p>
                 </div>
               </div>
@@ -58,17 +64,19 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-white">Phone</h4>
-                  <p className=" text-neutral-400">
-                    +977-9819745073, +977-9764632928
+                  <p className="text-neutral-400">
+                    <a href="tel:+9779819745073">+977-9819745073</a>,{" "}
+                    <a href="tel:+9779764632928">+977-9764632928</a>
                   </p>
                 </div>
               </div>
-    
             </div>
           </div>
 
           <div>
-            <h4 className=" font-semibold text-white mb-4 text-center md:text-start">Follow Me</h4>
+            <h4 className=" font-semibold text-white mb-4 text-center md:text-start">
+              Follow Me
+            </h4>
             <div className="flex gap-4 text-white/60">
               <a
                 href="https://www.facebook.com/dharmendra.ram5073"

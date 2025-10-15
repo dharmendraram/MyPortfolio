@@ -154,28 +154,28 @@ export const portfolioItems = [
     category: "Web Design",
     image:
       "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    link: "https://example.com/ecommerce",
+    link: "",
   },
   {
     title: "Fitness App UI",
     category: "UI/UX Design",
     image:
       "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
-    link: "https://example.com/fitnessapp",
+    link: "",
   },
   {
     title: "Analytics Dashboard",
     category: "Web Development",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1115&q=80",
-    link: "https://example.com/analytics",
+    link: "",
   },
   {
     title: "Testing Project 1",
     category: "Full-Stack Development",
     image:
       "https://images.unsplash.com/photo-1626968361222-291e74711449?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://example.com/testingproject1",
+    link: "",
   },
 
   {
@@ -183,7 +183,7 @@ export const portfolioItems = [
     category: "UI/UX Design",
     image:
       "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    link: "https://example.com/testingproject2",
+    link: "",
   },
 ];
 export const experiences = [
