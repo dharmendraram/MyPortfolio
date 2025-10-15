@@ -14,12 +14,12 @@ const About = () => {
         <div className="relative w-55 h-55 group ">
           <img
             src={user}
-            className="w-full h-full object-cover grayscale rounded-xl group-hover:grayscale-0 transition duration-500"
+            className="w-full h-full object-cover rounded-xl group-hover:grayscale transition duration-500"
             alt="User"
           />
-          <div className="absolute top-1/2 left-1/2 w-60 h-60 border border-neutral-300 transform -translate-x-1/2 -translate-y-1/2 rotate-45 z-0 transition-all duration-500 group-hover:scale-110 group-hover:border-blue-500"></div>
+          <div className="absolute top-1/2 left-1/2 w-60 h-60 border border-blue-500 transform -translate-x-1/2 -translate-y-1/2 rotate-45 z-0 transition-all duration-500 group-hover:scale-110 group-hover:border-neutral-300"></div>
 
-          <div className="absolute top-1/2 left-1/2 w-60 h-60 border border-neutral-300 transform -translate-x-1/2 -translate-y-1/2 rotate-0 z-0 transition-all duration-500 group-hover:scale-110 group-hover:border-pink-500"></div>
+          <div className="absolute top-1/2 left-1/2 w-60 h-60 border border-pink-500 transform -translate-x-1/2 -translate-y-1/2 rotate-0 z-0 transition-all duration-500 group-hover:scale-110 group-hover:border-neutral-300"></div>
         </div>
 
         {/* About Content - Right */}

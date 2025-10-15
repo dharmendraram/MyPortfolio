@@ -86,7 +86,7 @@ const Portfolio = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="bg-neutral-900 rounded-lg max-w-4xl w-full p-6 relative shadow-xl border border-white/10"
+              className="bg-neutral-900 rounded-lg max-w-6xl w-full p-6 relative shadow-xl border border-white/10"
             >
               {/* Close Button */}
               <button
@@ -95,7 +95,6 @@ const Portfolio = () => {
               >
                 &times;
               </button>
-
               {/* Modal Content */}
               <div className="py-3">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -104,7 +103,7 @@ const Portfolio = () => {
                     <img
                       src={selectedItem.image}
                       alt={selectedItem.title}
-                      className="w-full h-64 object-fill rounded-md"
+                      className="w-full h-full object-fill rounded-md"
                     />
                   </div>
 

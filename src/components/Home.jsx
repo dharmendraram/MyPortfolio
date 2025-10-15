@@ -86,6 +86,7 @@ const Home = () => {
           </div>
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
             <button
+              onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}
               className="px-6 py-2 rounded-full bg-gradient-to-r from-teal-400 to-teal-700 text-white hover:opacity-90 transition-opacity
             "
             >

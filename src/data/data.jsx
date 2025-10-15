@@ -42,6 +42,10 @@ import { IoBagHandleOutline } from "react-icons/io5";
 import nirc from "../assets/nirc.png";
 import rakmina from "../assets/portfolio/rakmina.png";
 import imgportfolio from "../assets/portfolio/personal.png";
+import nircwebsite from "../assets/portfolio/nirc-website.png";
+import hms from "../assets/portfolio/hms.png";
+
+
 export const skillsData = [
   {
     title: "Frontend",
@@ -169,7 +173,29 @@ export const portfolioItems = [
     github: "https://github.com/dharmendraram/MyPortfolio",
     link: "http://dharmendraram.com.np/",
     description:
-      "A modern fitness tracking app UI with personalized dashboard and activity insights.",
+      "A personal portfolio website, showcasing my interests, knowledge, experiences, skills and projects that I have done.In this digital era it has been mandatory to have digital exiatence. It becomes even more neccessary for the people in IT field. Personal portfolio website the resume of this digital world.",
+  },
+
+  {
+    title: "National Incubation and Research Center (NIRC) Website",
+    category: "Web design & Development",
+    image: nircwebsite,
+    technology: ["HTML", "CSS", "JavaScript","PHP"],
+    github: "",
+    link: "https://nirc.com.np/",
+    description:
+      "A leading software development company dedicated to delivering cutting-edge digital solutions.",
+  },
+
+  {
+    title: "Hospital Management System (HMS)",
+    category: "Web design & Development",
+    image: hms,
+    technology: ["HTML", "CSS", "Django",],
+    github: "",
+    link: "https://hms.nirc.com.np/login/",
+    description:
+      "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
   },
 ];
 export const experiences = [
