@@ -43,7 +43,7 @@ const Portfolio = () => {
           speed={7000}
           breakpoints={{
             640: { slidesPerView: 2 },
-            1024: { slidesPerView: 4 },
+            1024: { slidesPerView: 5 },
           }}
         >
           {portfolioItems.map((item, index) => (
@@ -51,17 +51,17 @@ const Portfolio = () => {
               <motion.div
                 whileHover={{ y: -5 }}
                 onClick={() => handleCardClick(item)}
-                className="bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden border border-white/20 cursor-pointer transition-all h-80 flex flex-col"
+                className="bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden border border-white/20 cursor-pointer transition-all h-72 flex flex-col"
               >
-                <div className="h-52 overflow-hidden flex-shrink-0">
+                <div className="h-44 overflow-hidden flex-shrink-0">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-fill object-center transform hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3 flex-1 flex flex-col justify-between">
-                  <h3 className="text-lg font-semibold text-neutral-200 mb-0">
+                <div className="p-2 flex-1 flex flex-col justify-center  text-center">
+                  <h3 className="text-sm font-semibold text-neutral-200 mb-0 pb-0 ">
                     {item.title}
                   </h3>
                   <p className="text-sm text-white/50 mt-0">{item.category}</p>

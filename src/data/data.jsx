@@ -44,7 +44,9 @@ import rakmina from "../assets/portfolio/rakmina.png";
 import imgportfolio from "../assets/portfolio/personal.png";
 import nircwebsite from "../assets/portfolio/nirc-website.png";
 import hms from "../assets/portfolio/hms.png";
-
+import gwp from "../assets/portfolio/gwp.png";
+import kic from "../assets/portfolio/kic.png";
+import signhub from "../assets/portfolio/signhub.png";
 
 export const skillsData = [
   {
@@ -180,7 +182,7 @@ export const portfolioItems = [
     title: "National Incubation and Research Center (NIRC) Website",
     category: "Web design & Development",
     image: nircwebsite,
-    technology: ["HTML", "CSS", "JavaScript","PHP"],
+    technology: ["HTML", "CSS", "JavaScript", "PHP"],
     github: "",
     link: "https://nirc.com.np/",
     description:
@@ -191,11 +193,41 @@ export const portfolioItems = [
     title: "Hospital Management System (HMS)",
     category: "Web design & Development",
     image: hms,
-    technology: ["HTML", "CSS", "Django",],
+    technology: ["HTML", "CSS", "Django"],
     github: "",
     link: "https://hms.nirc.com.np/login/",
     description:
       "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
+  },
+  {
+    title: "Government With People (GWP)",
+    category: "Web design & Development",
+    image: gwp,
+    technology: ["HTML", "CSS", "JavaScript", "Java Grails"],
+    github: "",
+    link: "https://gwp.nirc.com.np/",
+    description:
+      "A comprehensive digital platform designed for local municipalities to provide citizens with easy access to information, online services, and community updates. The website enhances transparency, efficiency, and engagement between the Palika and its residents. Developed by Me & NIRC Team.",
+  },
+  {
+    title: "KIEC – Study Abroad & Immigration Services | Your Global Gateway",
+    category: "Web design & Development",
+    image: kic,
+    technology: ["HTML", "CSS", "JavaScript", "Django"],
+    github: "",
+    link: "",
+    description:
+      "KIEC guides students and professionals in achieving global education and migration goals — from university selection to visa support and pre-departure readiness.",
+  },
+  {
+    title: "SignHub ERP — Secure Login & Enterprise Platform",
+    category: "Web design & Development",
+    image: signhub,
+    technology: ["HTML", "CSS", "JavaScript", "Django"],
+    github: "",
+    link: "https://erp.signhub.com.np/",
+    description:
+      "SignHub ERP is a secure enterprise login portal developed by NIRC, offering streamlined access for users to manage organizational tasks and data. Experience robust, cloud-based functionality in one central dashboard.",
   },
 ];
 export const experiences = [
