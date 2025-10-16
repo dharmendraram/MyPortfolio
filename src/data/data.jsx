@@ -47,6 +47,7 @@ import hms from "../assets/portfolio/hms.png";
 import gwp from "../assets/portfolio/gwp.png";
 import kic from "../assets/portfolio/kic.png";
 import signhub from "../assets/portfolio/signhub.png";
+import brandwave from "../assets/portfolio/brandwave.png";
 
 export const skillsData = [
   {
@@ -166,6 +167,16 @@ export const portfolioItems = [
     link: "https://rakmina.nirc.com.np/",
     description:
       "A professional recruitment and migration portal that connects Nepali talent with global career opportunities, offering end-to-end support from job search to visa processing.",
+  },
+  {
+    title: "BrandWave — Digital Agency in Biratnagar | Web, Marketing & Event Services",
+    category: "Web Design and Development",
+    image: brandwave,
+    technology: ["HTML", "Bootstrap", "JavaScript"],
+    github: "",
+    link: "https://brandwave.com.np/",
+    description:
+      "BrandWave is a premier digital agency in Biratnagar, Nepal, offering website development, digital marketing, meta ads, branding, and event shooting services to elevate your brand.",
   },
   {
     title: "Portfolio Website",

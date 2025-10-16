@@ -43,9 +43,9 @@ const About = () => {
             efficient, and future-ready.
           </p>
 
-          <button className="px-6 py-2 border border-neutral-400 rounded-full cursor-pointer hover:bg-white transition hover:text-neutral-700">
+          {/* <button className="px-6 py-2 border border-neutral-400 rounded-full cursor-pointer hover:bg-white transition hover:text-neutral-700">
             Download Resume
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
