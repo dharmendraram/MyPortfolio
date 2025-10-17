@@ -3,8 +3,16 @@
 /* tailwind css  */
 @import "tailwindcss";
 
+:root {
+  --bg-primary: #202020;
+  --bg-secondary: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #1f2937;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 li {
@@ -18,6 +26,23 @@ a {
 .text-outline {
     -webkit-text-stroke: 1px #fff;
     color: transparent;
+}
+
+/* Light theme text outline */
+.light .text-outline {
+    -webkit-text-stroke: 1px #1f2937;
+    color: transparent;
+}
+
+/* Theme-specific body classes */
+body.dark {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+body.light {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
 }
 
 .border-line {

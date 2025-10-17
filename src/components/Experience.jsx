@@ -1,19 +1,26 @@
 import React from "react";
 import { experiences } from "../data/data";
 import { span } from "framer-motion/client";
+import { useTheme } from "../context/ThemeContext";
 
 
 
 const Experience = () => {
+  const { isDark } = useTheme();
+  
   return (
     <section
       id="experience"
       className="py-5 relative border-t-1 border-[#555555]"
     >
-      <h2 className="text-3xl font-bold text-center text-neutral-300">
+      <h2 className={`text-3xl font-bold text-center ${
+        isDark ? 'text-neutral-300' : 'text-gray-700'
+      }`}>
         My <span className="text-outline">Experience</span>
       </h2>
-      <p className="text-neutral-400 text-center max-w-xl mx-auto mb-5">
+      <p className={`text-center max-w-xl mx-auto mb-5 ${
+        isDark ? 'text-neutral-400' : 'text-gray-600'
+      }`}>
         A journey through my professional milestones and achievements.
       </p>
 
@@ -37,21 +44,33 @@ const Experience = () => {
                 </div>
 
                 <div
-                  className={`w-full md:w-[45%] p-6 rounded-xl shadow-lg border border-white/20 hover:scale-105 transition-transform duration-300 ${
+                  className={`w-full md:w-[45%] p-6 rounded-xl shadow-lg border hover:scale-105 transition-transform duration-300 ${
+                    isDark ? 'border-white/20' : 'border-gray-900/20'
+                  } ${
                     isLeft ? "md:text-right md:mr-12" : "md:ml-12"
                   } text-left`}
                 >
-                  <h3 className="text-xl font-semibold text-neutral-100">
+                  <h3 className={`text-xl font-semibold ${
+                    isDark ? 'text-neutral-100' : 'text-gray-900'
+                  }`}>
                     {exp.title}
                   </h3>
                   <p className="text-teal-500 font-medium">{exp.company}</p>
-                  <span className="text-sm text-white/50">{exp.period}</span>
-                  <p className="text-neutral-400 text-justify text-sm mb-4">
+                  <span className={`text-sm ${
+                    isDark ? 'text-white/50' : 'text-gray-600'
+                  }`}>{exp.period}</span>
+                  <p className={`text-justify text-sm mb-4 ${
+                    isDark ? 'text-neutral-400' : 'text-gray-600'
+                  }`}>
                     {exp.description}
                   </p>
                   <div className="flex flex-wrap gap-2 md:justify-end justify-start">
                     {exp.skills.map((skill, index) => (
-                      <span className="px-3 py-1 border border-[#555] text-white/70 rounded-md text-sm text-light" key={index}>{skill}</span>
+                      <span className={`px-3 py-1 border rounded-md text-sm text-light ${
+                        isDark 
+                          ? 'border-[#555] text-white/70' 
+                          : 'border-gray-400 text-gray-700'
+                      }`} key={index}>{skill}</span>
                     ))}
                   </div>
                 </div>

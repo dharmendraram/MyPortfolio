@@ -2,15 +2,22 @@ import React from "react";
 import { skillsData } from "../data/data";
 import { motion } from "framer-motion";
 import GridLine from "../utils/GridLine";
+import { useTheme } from "../context/ThemeContext";
 const Skills = () => {
+  const { isDark } = useTheme();
+  
   return (
     <section id="skills" className="py-5 relative">
       <div className="container mx-auto px-4 md:px-6">
-        <h2 className=" text-3xl font-bold text-center mb-1 text-neutral-300">
+        <h2 className={`text-3xl font-bold text-center mb-1 ${
+          isDark ? 'text-neutral-300' : 'text-gray-700'
+        }`}>
           {" "}
           <span className="text-outline">Skills</span>
         </h2>
-        <p className="text-neutral-400 text-center max-w-xl mx-auto mb-5">
+        <p className={`text-center max-w-xl mx-auto mb-5 ${
+          isDark ? 'text-neutral-400' : 'text-gray-600'
+        }`}>
           The tools and technologies I use to bring idreas to life.
         </p>
         <div className="grid md:grid-cols-2 gap-10">
@@ -25,7 +32,9 @@ const Skills = () => {
                 borderColor: "oklch(77.7% 0.152 181.912)",
               }}
               transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className=" backdrop-blur-lg rounded-lg p-6 shadow-lg border border-white/20"
+              className={`backdrop-blur-lg rounded-lg p-6 shadow-lg border ${
+                isDark ? 'border-white/20' : 'border-gray-900/20'
+              }`}
             >
               <h3 className=" text-3xl font-semibold mb-4 text-teal-400">
                 {skill.title}
@@ -43,9 +52,13 @@ const Skills = () => {
                     }}
                     transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   >
-                    <div className="flex items-center z-20 relative gap-2 py-2 px-3 text-white/50 bg-black/20 backdrop-blur-md rounded-lg cursor-pointer text-sm">
+                    <div className={`flex items-center z-20 relative gap-2 py-2 px-3 backdrop-blur-md rounded-lg cursor-pointer text-sm ${
+                      isDark 
+                        ? 'text-white/50 bg-black/20' 
+                        : 'text-gray-700 bg-white/20'
+                    }`}>
                       <span className="text-2xl">{item.icon}</span>
-                      <span className="text-neutral-300">{item.name}</span>
+                      <span className={isDark ? 'text-neutral-300' : 'text-gray-700'}>{item.name}</span>
                     </div>
                   </motion.div>
                 ))}

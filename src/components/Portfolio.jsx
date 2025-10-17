@@ -3,10 +3,12 @@ import { portfolioItems } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
 import "swiper/css";
 
 const Portfolio = () => {
   const [selectedItem, setSelectedItem] = useState(null);
+  const { isDark } = useTheme();
 
   const handleCardClick = (item) => {
     setSelectedItem(item);
@@ -20,10 +22,14 @@ const Portfolio = () => {
     <section id="portfolio" className="py-10 px-6 border-t border-[#444]">
       <div className="mx-auto container">
         {/* Section Title */}
-        <h2 className="text-3xl font-bold text-center text-neutral-300 mb-3">
+        <h2 className={`text-3xl font-bold text-center mb-3 ${
+          isDark ? 'text-neutral-300' : 'text-gray-700'
+        }`}>
           My <span className="text-outline">Portfolio</span>
         </h2>
-        <p className="text-neutral-400 text-center max-w-2xl mx-auto mb-8">
+        <p className={`text-center max-w-2xl mx-auto mb-8 ${
+          isDark ? 'text-neutral-400' : 'text-gray-600'
+        }`}>
           A showcase of my projects, highlighting my skills and expertise in web
           development.
         </p>
@@ -51,7 +57,11 @@ const Portfolio = () => {
               <motion.div
                 whileHover={{ y: -5 }}
                 onClick={() => handleCardClick(item)}
-                className="bg-white/10 backdrop-blur-lg rounded-lg overflow-hidden border border-white/20 cursor-pointer transition-all h-72 flex flex-col"
+                className={`backdrop-blur-lg rounded-lg overflow-hidden border cursor-pointer transition-all h-72 flex flex-col ${
+                  isDark 
+                    ? 'bg-white/10 border-white/20' 
+                    : 'bg-gray-900/10 border-gray-900/20'
+                }`}
               >
                 <div className="h-44 overflow-hidden flex-shrink-0">
                   <img
@@ -61,10 +71,14 @@ const Portfolio = () => {
                   />
                 </div>
                 <div className="p-2 flex-1 flex flex-col justify-center  text-center">
-                  <h3 className="text-sm font-semibold text-neutral-200 mb-0 pb-0 ">
+                  <h3 className={`text-sm font-semibold mb-0 pb-0 ${
+                    isDark ? 'text-neutral-200' : 'text-gray-900'
+                  }`}>
                     {item.title}
                   </h3>
-                  <p className="text-sm text-white/50 mt-0">{item.category}</p>
+                  <p className={`text-sm mt-0 ${
+                    isDark ? 'text-white/50' : 'text-gray-600'
+                  }`}>{item.category}</p>
                 </div>
               </motion.div>
             </SwiperSlide>
@@ -86,7 +100,11 @@ const Portfolio = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="bg-neutral-900 rounded-lg max-w-6xl w-full p-6 relative shadow-xl border border-white/10"
+              className={`rounded-lg max-w-6xl w-full p-6 relative shadow-xl border ${
+                isDark 
+                  ? 'bg-neutral-900 border-white/10' 
+                  : 'bg-white border-gray-900/10'
+              }`}
             >
               {/* Close Button */}
               <button
@@ -109,15 +127,21 @@ const Portfolio = () => {
 
                   {/* Content - Bottom on mobile, Left on desktop */}
                   <div className="order-2 md:order-1">
-                    <h3 className="text-2xl font-bold text-white mb-2">
+                    <h3 className={`text-2xl font-bold mb-2 ${
+                      isDark ? 'text-white' : 'text-gray-900'
+                    }`}>
                       {selectedItem.title}
                     </h3>
-                    <p className="text-sm text-gray-400 mb-4">
+                    <p className={`text-sm mb-4 ${
+                      isDark ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
                       Category: {selectedItem.category}
                     </p>
 
                     {/* Description */}
-                    <p className="text-neutral-300 text-sm leading-relaxed mb-4">
+                    <p className={`text-sm leading-relaxed mb-4 ${
+                      isDark ? 'text-neutral-300' : 'text-gray-700'
+                    }`}>
                       {selectedItem.description ||
                         "A detailed description of this project will be added soon."}
                     </p>
@@ -125,14 +149,20 @@ const Portfolio = () => {
                     {/* Technologies */}
                     {selectedItem.technology && (
                       <div className="mb-4">
-                        <h4 className="text-white font-semibold mb-2 text-sm">
+                        <h4 className={`font-semibold mb-2 text-sm ${
+                          isDark ? 'text-white' : 'text-gray-900'
+                        }`}>
                           Technologies Used:
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {selectedItem.technology.map((tech, idx) => (
                             <span
                               key={idx}
-                              className="text-xs bg-white/10 border border-white/20 px-2 py-1 rounded-md text-gray-300"
+                              className={`text-xs px-2 py-1 rounded-md ${
+                                isDark 
+                                  ? 'bg-white/10 border border-white/20 text-gray-300' 
+                                  : 'bg-gray-900/10 border border-gray-900/20 text-gray-700'
+                              }`}
                             >
                               {tech}
                             </span>
@@ -158,7 +188,11 @@ const Portfolio = () => {
                           href={selectedItem.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-5 py-2 border border-white/30 hover:bg-white/20 text-white rounded-sm text-sm transition"
+                          className={`px-5 py-2 border rounded-sm text-sm transition ${
+                            isDark 
+                              ? 'border-white/30 hover:bg-white/20 text-white' 
+                              : 'border-gray-900/30 hover:bg-gray-900/20 text-gray-900'
+                          }`}
                         >
                           View On Github
                         </a>

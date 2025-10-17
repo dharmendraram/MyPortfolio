@@ -1,5 +1,6 @@
 import React from "react";
 import HeadingHero from "../utils/HeadingHero";
+import { useTheme } from "../context/ThemeContext";
 import {
   FaFacebook,
   FaGithub,
@@ -11,6 +12,8 @@ import { BsWhatsapp } from "react-icons/bs";
 import user from "../assets/hero/pic3.png";
 
 const Home = () => {
+  const { isDark } = useTheme();
+  
   return (
     <section
       id={`home`}
@@ -24,7 +27,9 @@ const Home = () => {
             I'm Dharmendra Kumar Ram
           </h3>
           <HeadingHero />
-          <p className="mt-4 text-white/40 max-w-3xl text-justify">
+          <p className={`mt-4 max-w-3xl text-justify transition-colors duration-300 ${
+            isDark ? 'text-white/40' : 'text-gray-600'
+          }`}>
             I am a passionate web developer with expertise in creating dynamic
             and responsive websites. With a strong foundation in both frontend
             and backend technologies, I strive to deliver seamless user
@@ -32,7 +37,9 @@ const Home = () => {
             your ideas to life!
           </p>
 
-          <div className="flex gap-3 justify-center md:justify-start mt-4 text-white/40">
+          <div className={`flex gap-3 justify-center md:justify-start mt-4 transition-colors duration-300 ${
+            isDark ? 'text-white/40' : 'text-gray-600'
+          }`}>
             <a
               href="https://www.facebook.com/dharmendra.ram5073"
               target="_blank"
@@ -95,8 +102,11 @@ const Home = () => {
             </button>
 
             <button
-              className="px-6 py-2 rounded-full bg-white/10 text-white hover:opacity-90 transition-opacity
-            cursor-pointer hover:bg-teal-700 "
+              className={`px-6 py-2 rounded-full hover:opacity-90 transition-all duration-300 cursor-pointer hover:bg-teal-700 ${
+                isDark 
+                  ? 'bg-white/10 text-white' 
+                  : 'bg-gray-900/10 text-gray-900'
+              }`}
             >
               {" "}
               Download CV
@@ -106,11 +116,13 @@ const Home = () => {
 
         <div className="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end relative">
           {/* Main Circle with Image */}
-          <div className="w-80 h-80 md:w-110 md:h-110 rounded-full overflow-hidden border-2  border-white/20 hover:border-teal-500 transition-all duration-500 group">
+          <div className={`w-80 h-80 md:w-110 md:h-110 rounded-full overflow-hidden border-2 hover:border-teal-500 transition-all duration-300 group ${
+            isDark ? 'border-white/20' : 'border-gray-900/20'
+          }`}>
             <img
               src={user}
               alt="Hero"
-              className="w-full h-full md:h-115 object-cover transition-transform duration-500 group-hover:scale-110"
+              className="w-full h-full md:h-115 object-cover transition-transform duration-300 group-hover:scale-110"
             />
           </div>
         </div>

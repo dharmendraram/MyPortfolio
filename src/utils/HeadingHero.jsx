@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useTheme } from '../context/ThemeContext'
 
 const HeadingHero = () => {
+    const { isDark } = useTheme();
     const roles=[
         { title: "Frontend Developer" },
         { title: "Backend Developer" },
@@ -42,7 +44,9 @@ const HeadingHero = () => {
 
   return (
     <div className='text-center md:text-left'>
-        <h1 className='text-3xl md:text-5xl font-bold text-white mb-6'>
+        <h1 className={`text-3xl md:text-5xl font-bold mb-6 ${
+          isDark ? 'text-white' : 'text-gray-900'
+        }`}>
             <span className='text-outline pb-1'>{currText}</span>
             <span className=' inline-block h-7 md:h-14 w-0.5 bg-cyan-400 ml-1'>
 

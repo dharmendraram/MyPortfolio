@@ -1,13 +1,18 @@
 import React, { Fragment } from "react";
 import GridLine from "../utils/GridLine";
+import { useTheme } from "../context/ThemeContext";
 
 import user from "../assets/about/pic2.png";
 
 const About = () => {
+  const { isDark } = useTheme();
+  
   return (
     <section
       id="about"
-      className="relative w-full border border-[rgba(102,102,102,0.3)] text-white flex justify-center items-center py-5 overflow-hidden"
+      className={`relative w-full border border-[rgba(102,102,102,0.3)] flex justify-center items-center py-5 overflow-hidden ${
+        isDark ? 'text-white' : 'text-gray-900'
+      }`}
     >
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-30 py-25 md:py-3 max-w-5xl w-full md:max-w-6xl">
         {/* Image - Left */}
@@ -24,10 +29,14 @@ const About = () => {
 
         {/* About Content - Right */}
         <div className="flex-1 px-4">
-          <h2 className="text-3xl font-bold mb-4 w-fit border-b-2 border-neutral-500 ">
+          <h2 className={`text-3xl font-bold mb-4 w-fit border-b-2 ${
+            isDark ? 'border-neutral-500' : 'border-gray-400'
+          }`}>
             About <span className="text-outline">Me</span>
           </h2>
-          <p className="text-neutral-300 mb-8 text-sm text-justify">
+          <p className={`mb-8 text-sm text-justify ${
+            isDark ? 'text-neutral-300' : 'text-gray-600'
+          }`}>
             I’m Dharmendra Kumar Ram, a passionate Full-Stack Developer who
             loves turning ideas into interactive, user-friendly applications.
             From crafting responsive interfaces to building scalable backends, I
@@ -35,7 +44,9 @@ const About = () => {
             engaging.
           </p>
 
-          <p className="text-neutral-300 mb-8 text-normal text-justify">
+          <p className={`mb-8 text-normal text-justify ${
+            isDark ? 'text-neutral-300' : 'text-gray-600'
+          }`}>
             I work with modern technologies like React.js, TypeScript, Node.js,
             Tailwind CSS, MySQL, Python & Django, and Java Grails. I enjoy
             collaborating with teams, solving complex problems, and delivering
