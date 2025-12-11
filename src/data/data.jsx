@@ -163,8 +163,7 @@ export const portfolioItems = [
     image: rakmina,
     technology: ["Next.js", "TailWind CSS", "Django rest framework API"],
     github: "",
-
-    link: "https://rakmina.nirc.com.np/",
+    link: "https://rakmina.lt/",
     description:
       "A professional recruitment and migration portal that connects Nepali talent with global career opportunities, offering end-to-end support from job search to visa processing.",
   },
@@ -226,7 +225,7 @@ export const portfolioItems = [
     image: kic,
     technology: ["HTML", "CSS", "JavaScript", "Django"],
     github: "",
-    link: "",
+    link: "https://kiceducation.edu.np/",
     description:
       "KIEC guides students and professionals in achieving global education and migration goals — from university selection to visa support and pre-departure readiness.",
   },
