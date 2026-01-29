@@ -22,14 +22,18 @@ const Portfolio = () => {
     <section id="portfolio" className="py-10 px-6 border-t border-[#444]">
       <div className="mx-auto container">
         {/* Section Title */}
-        <h2 className={`text-3xl font-bold text-center mb-3 ${
-          isDark ? 'text-neutral-300' : 'text-gray-700'
-        }`}>
+        <h2
+          className={`text-3xl font-bold text-center mb-3 ${
+            isDark ? "text-neutral-300" : "text-gray-700"
+          }`}
+        >
           My <span className="text-outline">Portfolio</span>
         </h2>
-        <p className={`text-center max-w-2xl mx-auto mb-8 ${
-          isDark ? 'text-neutral-400' : 'text-gray-600'
-        }`}>
+        <p
+          className={`text-center max-w-2xl mx-auto mb-8 ${
+            isDark ? "text-neutral-400" : "text-gray-600"
+          }`}
+        >
           A showcase of my projects, highlighting my skills and expertise in web
           development.
         </p>
@@ -49,7 +53,7 @@ const Portfolio = () => {
           speed={7000}
           breakpoints={{
             640: { slidesPerView: 2 },
-            1024: { slidesPerView: 5 },
+            1024: { slidesPerView: 3 },
           }}
         >
           {portfolioItems.map((item, index) => (
@@ -57,28 +61,67 @@ const Portfolio = () => {
               <motion.div
                 whileHover={{ y: -5 }}
                 onClick={() => handleCardClick(item)}
-                className={`backdrop-blur-lg rounded-lg overflow-hidden border cursor-pointer transition-all h-72 flex flex-col ${
-                  isDark 
-                    ? 'bg-white/10 border-white/20' 
-                    : 'bg-gray-900/10 border-gray-900/20'
+                className={`backdrop-blur-lg rounded-lg overflow-hidden border cursor-pointer transition-all h-[320px] flex flex-col ${
+                  isDark
+                    ? "bg-white/10 border-white/20"
+                    : "bg-gray-900/10 border-gray-900/20"
                 }`}
               >
-                <div className="h-44 overflow-hidden flex-shrink-0">
+                <div className="h-52 overflow-hidden flex-shrink-0">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-fill object-center transform hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-2 flex-1 flex flex-col justify-center  text-center">
-                  <h3 className={`text-sm font-semibold mb-0 pb-0 ${
-                    isDark ? 'text-neutral-200' : 'text-gray-900'
-                  }`}>
+                <div className="p-2 flex-1 flex flex-col justify-center text-center">
+                  <div className="flex items-center justify-between mb-2 me-2">
+                  
+                    {item.company === "Company" ? (
+                      <span className="text-xs px-2 py-1.5 rounded-md bg-yellow-700 text-white">
+                        {item.company}
+                      </span>
+                    ) : (
+                      <span className="text-xs px-2 py-1.5 rounded-md bg-green-500/20 text-green-600">
+                        {item.company}
+                      </span>
+                    )}
+                      <div className="flex items-center gap-1">
+                      {item.username && (
+                      <p
+                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
+                      >
+                        User: {item.username}
+                      </p>
+                    )}
+
+                    {item.password && (
+                      <p
+                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
+                      >
+                        Pw: {item.password}
+                      </p>
+                    )}
+                    </div>
+                  </div>
+
+                  <h3
+                    className={`text-sm font-semibold mb-0 pb-0 ${
+                      isDark ? "text-neutral-200" : "text-gray-900"
+                    }`}
+                  >
                     {item.title}
                   </h3>
-                  <p className={`text-sm mt-0 ${
-                    isDark ? 'text-white/50' : 'text-gray-600'
-                  }`}>{item.category}</p>
+                  <div className="flex justify-center gap-2 items-center">
+                    
+                    <p
+                      className={`text-sm  ${
+                        isDark ? "text-white/100" : "text-gray-600"
+                      }`}
+                    >
+                      {item.category}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             </SwiperSlide>
@@ -101,9 +144,9 @@ const Portfolio = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.25 }}
               className={`rounded-lg max-w-6xl w-full p-6 relative shadow-xl border ${
-                isDark 
-                  ? 'bg-neutral-900 border-white/10' 
-                  : 'bg-white border-gray-900/10'
+                isDark
+                  ? "bg-neutral-900 border-white/10"
+                  : "bg-white border-gray-900/10"
               }`}
             >
               {/* Close Button */}
@@ -127,21 +170,56 @@ const Portfolio = () => {
 
                   {/* Content - Bottom on mobile, Left on desktop */}
                   <div className="order-2 md:order-1">
-                    <h3 className={`text-2xl font-bold mb-2 ${
-                      isDark ? 'text-white' : 'text-gray-900'
-                    }`}>
+                      <div className="flex items-center justify-between mb-2 me-2">
+                  
+                    {selectedItem.company === "Company" ? (
+                      <span className="text-xs px-2 py-1.5 rounded-md bg-yellow-700 text-white">
+                        {selectedItem.company}
+                      </span>
+                    ) : (
+                      <span className="text-xs px-2 py-1.5 rounded-md bg-green-500/20 text-green-600">
+                        {selectedItem.company}
+                      </span>
+                    )}
+                      <div className="flex items-center gap-1">
+                      {selectedItem.username && (
+                      <p
+                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
+                      >
+                        User: {selectedItem.username}
+                      </p>
+                    )}
+
+                    {selectedItem.password && (
+                      <p
+                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
+                      >
+                        Pw: {selectedItem.password}
+                      </p>
+                    )}
+                    </div>
+                  </div>
+                    <h3
+                      className={`text-2xl font-bold mb-2 ${
+                        isDark ? "text-white" : "text-gray-900"
+                      }`}
+                    >
                       {selectedItem.title}
                     </h3>
-                    <p className={`text-sm mb-4 ${
-                      isDark ? 'text-gray-400' : 'text-gray-600'
-                    }`}>
+                    <p
+                      className={`text-sm mb-4 ${
+                        isDark ? "text-gray-400" : "text-gray-600"
+                      }`}
+                    >
                       Category: {selectedItem.category}
                     </p>
 
                     {/* Description */}
-                    <p className={`text-sm leading-relaxed mb-4 ${
-                      isDark ? 'text-neutral-300' : 'text-gray-700'
-                    }`}>
+                    <p
+                      className={`text-sm leading-relaxed mb-4 ${
+                        isDark ? "text-neutral-300" : "text-gray-700"
+                      }`}
+                    >
                       {selectedItem.description ||
                         "A detailed description of this project will be added soon."}
                     </p>
@@ -149,9 +227,11 @@ const Portfolio = () => {
                     {/* Technologies */}
                     {selectedItem.technology && (
                       <div className="mb-4">
-                        <h4 className={`font-semibold mb-2 text-sm ${
-                          isDark ? 'text-white' : 'text-gray-900'
-                        }`}>
+                        <h4
+                          className={`font-semibold mb-2 text-sm ${
+                            isDark ? "text-white" : "text-gray-900"
+                          }`}
+                        >
                           Technologies Used:
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -159,9 +239,9 @@ const Portfolio = () => {
                             <span
                               key={idx}
                               className={`text-xs px-2 py-1 rounded-md ${
-                                isDark 
-                                  ? 'bg-white/10 border border-white/20 text-gray-300' 
-                                  : 'bg-gray-900/10 border border-gray-900/20 text-gray-700'
+                                isDark
+                                  ? "bg-white/10 border border-white/20 text-gray-300"
+                                  : "bg-gray-900/10 border border-gray-900/20 text-gray-700"
                               }`}
                             >
                               {tech}
@@ -189,9 +269,9 @@ const Portfolio = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`px-5 py-2 border rounded-sm text-sm transition ${
-                            isDark 
-                              ? 'border-white/30 hover:bg-white/20 text-white' 
-                              : 'border-gray-900/30 hover:bg-gray-900/20 text-gray-900'
+                            isDark
+                              ? "border-white/30 hover:bg-white/20 text-white"
+                              : "border-gray-900/30 hover:bg-gray-900/20 text-gray-900"
                           }`}
                         >
                           View On Github

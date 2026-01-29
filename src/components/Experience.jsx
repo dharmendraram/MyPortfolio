@@ -16,12 +16,12 @@ const Experience = () => {
       <h2 className={`text-3xl font-bold text-center ${
         isDark ? 'text-neutral-300' : 'text-gray-700'
       }`}>
-        My <span className="text-outline">Experience</span>
+        My <span className="text-outline">Experience</span> & Education
       </h2>
       <p className={`text-center max-w-xl mx-auto mb-5 ${
         isDark ? 'text-neutral-400' : 'text-gray-600'
       }`}>
-        A journey through my professional milestones and achievements.
+        An overview of my professional experience and educational background.
       </p>
 
       <div className="relative max-w-5xl mx-auto px-4 py-5">

@@ -37,7 +37,7 @@ const Home = () => {
             your ideas to life!
           </p>
 
-          <div className={`flex gap-3 justify-center md:justify-start mt-4 transition-colors duration-300 ${
+          {/* <div className={`flex gap-3 justify-center md:justify-start mt-4 transition-colors duration-300 ${
             isDark ? 'text-white/40' : 'text-gray-600'
           }`}>
             <a
@@ -90,7 +90,7 @@ const Home = () => {
             >
               <FaViber />
             </a>
-          </div>
+          </div> */}
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
             <button
               onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}
@@ -101,7 +101,7 @@ const Home = () => {
               View my Work
             </button>
 
-            <button
+            {/* <button
               className={`px-6 py-2 rounded-full hover:opacity-90 transition-all duration-300 cursor-pointer hover:bg-teal-700 ${
                 isDark 
                   ? 'bg-white/10 text-white' 
@@ -110,7 +110,7 @@ const Home = () => {
             >
               {" "}
               Download CV
-            </button>
+            </button> */}
           </div>
         </div>
 

@@ -40,14 +40,17 @@ import { LuCircleUser, LuContact } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
 
 import nirc from "../assets/nirc.png";
+import tu from "../assets/tu.png";
 import rakmina from "../assets/portfolio/rakmina.png";
 import imgportfolio from "../assets/portfolio/personal.png";
 import nircwebsite from "../assets/portfolio/nirc-website.png";
 import hms from "../assets/portfolio/hms.png";
 import gwp from "../assets/portfolio/gwp.png";
 import kic from "../assets/portfolio/kic.png";
-import signhub from "../assets/portfolio/signhub.png";
+import pratishthan from "../assets/portfolio/pratishthan.png";
 import brandwave from "../assets/portfolio/brandwave.png";
+import aarambha from "../assets/portfolio/aarambha.png";
+import startupghar from "../assets/portfolio/startupghar.png";
 
 export const skillsData = [
   {
@@ -158,8 +161,69 @@ export const testimonials = [
 // Portfolio data
 export const portfolioItems = [
   {
+    title: "National Incubation and Research Center (NIRC) Website",
+    category: "Full Stack Developer",
+    company: "Company",
+    username: "",
+    password: "",
+    image: nircwebsite,
+    technology: ["HTML", "CSS", "JavaScript", "Python & Django"],
+    github: "",
+    link: "https://nirc.com.np/",
+    description:
+      "A leading software development company dedicated to delivering cutting-edge digital solutions.",
+  },
+
+  {
+    title: "Hospital Management System (HMS)",
+    category: "Core Designer & Lead Developer",
+    company: "Company",
+    username: "demo_user",
+    password: "demo",
+    image: hms,
+    technology: ["HTML", "CSS", "JavaScript", "Django"],
+    github: "",
+    link: "https://hms.nirc.com.np/login/",
+    description:
+      "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
+  },
+  {
+    title: "Government With People (GWP)",
+    category: "Core Front-End Developer",
+    company: "Company",
+    username: "p.demo",
+    password: "@dminP@ssw0rd",
+    image: gwp,
+    technology: ["HTML", "CSS", "JavaScript", "Java Grails"],
+    github: "",
+    link: "https://gwp.nirc.com.np/",
+    description:
+      "A comprehensive digital platform designed for local municipalities to provide citizens with easy access to information, online services, and community updates. The website enhances transparency, efficiency, and engagement between the Palika and its residents. Developed by Me & NIRC Team.",
+  },
+  {
+    title: "प्रदेश अनुसन्धान तथा प्रशिक्षण प्रतिष्ठान",
+    category: "Front-End Developer",
+    company: "Company",
+    username: "",
+    password: "",
+    image: pratishthan,
+    technology: [
+      "React.js",
+      "TailWind CSS",
+      "JavaScript",
+      "Django REST framework API",
+    ],
+    github: "",
+    link: "https://training.nirc.com.np/",
+    description:
+      "An official digital platform developed for the Government of Nepal’s Provincial Research and Training Institute to deliver training programs, research resources, and institutional information. The system improves accessibility, transparency, and digital learning for government officials and trainees. Developed collaboratively with the NIRC team.",
+  },
+  {
     title: "Rakmina Recruitment & Migration Platform",
-    category: "Web Design and Development",
+    category: "Lead Front-End Developer",
+    company: "Company",
+    username: "",
+    password: "",
     image: rakmina,
     technology: ["Next.js", "TailWind CSS", "Django rest framework API"],
     github: "",
@@ -168,8 +232,12 @@ export const portfolioItems = [
       "A professional recruitment and migration portal that connects Nepali talent with global career opportunities, offering end-to-end support from job search to visa processing.",
   },
   {
-    title: "BrandWave — Digital Agency in Biratnagar | Web, Marketing & Event Services",
-    category: "Web Design and Development",
+    title:
+      "BrandWave — Digital Agency in Biratnagar | Web, Marketing & Event Services",
+    category: "Full Stack Developer",
+    company: "Personal",
+    username: "",
+    password: "",
     image: brandwave,
     technology: ["HTML", "Bootstrap", "JavaScript"],
     github: "",
@@ -179,7 +247,10 @@ export const portfolioItems = [
   },
   {
     title: "Portfolio Website",
-    category: "Web design & Development",
+    category: "Full Stack Developer",
+    company: "Personal",
+    username: "",
+    password: "",
     image: imgportfolio,
     technology: ["React.js", "TailWind CSS", "JavaScript"],
     github: "https://github.com/dharmendraram/MyPortfolio",
@@ -187,41 +258,12 @@ export const portfolioItems = [
     description:
       "A personal portfolio website, showcasing my interests, knowledge, experiences, skills and projects that I have done.In this digital era it has been mandatory to have digital exiatence. It becomes even more neccessary for the people in IT field. Personal portfolio website the resume of this digital world.",
   },
-
-  {
-    title: "National Incubation and Research Center (NIRC) Website",
-    category: "Web design & Development",
-    image: nircwebsite,
-    technology: ["HTML", "CSS", "JavaScript", "PHP"],
-    github: "",
-    link: "https://nirc.com.np/",
-    description:
-      "A leading software development company dedicated to delivering cutting-edge digital solutions.",
-  },
-
-  {
-    title: "Hospital Management System (HMS)",
-    category: "Web design & Development",
-    image: hms,
-    technology: ["HTML", "CSS", "Django"],
-    github: "",
-    link: "https://hms.nirc.com.np/login/",
-    description:
-      "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
-  },
-  {
-    title: "Government With People (GWP)",
-    category: "Web design & Development",
-    image: gwp,
-    technology: ["HTML", "CSS", "JavaScript", "Java Grails"],
-    github: "",
-    link: "https://gwp.nirc.com.np/",
-    description:
-      "A comprehensive digital platform designed for local municipalities to provide citizens with easy access to information, online services, and community updates. The website enhances transparency, efficiency, and engagement between the Palika and its residents. Developed by Me & NIRC Team.",
-  },
   {
     title: "KIEC – Study Abroad & Immigration Services | Your Global Gateway",
-    category: "Web design & Development",
+    category: "Full Stack Developer",
+    company: "Personal",
+    username: "",
+    password: "",
     image: kic,
     technology: ["HTML", "CSS", "JavaScript", "Django"],
     github: "",
@@ -230,14 +272,30 @@ export const portfolioItems = [
       "KIEC guides students and professionals in achieving global education and migration goals — from university selection to visa support and pre-departure readiness.",
   },
   {
-    title: "SignHub ERP — Secure Login & Enterprise Platform",
-    category: "Web design & Development",
-    image: signhub,
+    title: "Aarambha Foundation",
+    category: "Front-End Developer",
+    company: "Personal",
+    username: "",
+    password: "",
+    image: aarambha,
+    technology: ["HTML", "CSS", "JavaScript", "Django REST framework API"],
+    github: "",
+    link: "https://aarambhafoundation.org.np/",
+    description:
+      "A purpose-driven digital platform focused on promoting quality education, better health, and a safe, nurturing environment for children across the nation. The platform supports initiatives that amplify children’s voices, protect their rights, and create equal opportunities for learning, growth, and well-being.",
+  },
+  {
+    title: "StartupGhar",
+    category: "Full Stack Developer",
+    company: "Personal",
+    username: "",
+    password: "",
+    image: startupghar,
     technology: ["HTML", "CSS", "JavaScript", "Django"],
     github: "",
-    link: "https://erp.signhub.com.np/",
+    link: "https://startupghar.com/",
     description:
-      "SignHub ERP is a secure enterprise login portal developed by NIRC, offering streamlined access for users to manage organizational tasks and data. Experience robust, cloud-based functionality in one central dashboard.",
+      "StartupGhar is an innovative digital platform designed to support startups and businesses through modern IT solutions. The platform focuses on delivering scalable web applications, efficient system integration, and user-friendly digital experiences that help organizations grow, innovate, and succeed in the digital era.",
   },
 ];
 export const experiences = [
@@ -281,5 +339,15 @@ export const experiences = [
       "Bootstrap",
       "Git/GitHub/GitLab",
     ],
+  },
+  {
+    id: 3,
+    company: "Tribhuvan University",
+    logo: tu, // replace with actual logo
+    title: "Bachelor in Computer Application",
+    period: "2020 - 2025", //
+    description:
+      "Completed a Bachelor’s degree in Computer Application with a strong focus on software development, web technologies, databases, and practical project work. Gained hands-on experience through academic projects and collaborative learning.",
+    skills: [],
   },
 ];
