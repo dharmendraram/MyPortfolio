@@ -1,4 +1,41 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+
+const ImageWithGlow = ({ user }) => {
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const divRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const bounds = divRef.current.getBoundingClientRect();
+    setPosition({ x: e.clientX - bounds.left, y: e.clientY - bounds.top });
+  };
+
+  return (
+    <div
+      ref={divRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+      className="relative w-80 h-80 md:w-110 md:h-110 rounded-full p-0.5 overflow-hidden cursor-pointer group"
+    >
+      {visible && (
+        <div
+          className="pointer-events-none blur-2xl bg-gradient-to-r from-teal-400 via-teal-500 to-teal-700 size-60 absolute z-0 transition-opacity duration-300"
+          style={{ top: position.y - 120, left: position.x - 120 }}
+        />
+      )}
+      <div className="relative z-10 w-full h-full rounded-full overflow-hidden">
+        <img
+          src={user}
+          alt="Hero"
+          loading="lazy"
+          className="w-full h-full object-cover transition duration-[3500ms] ease-in-out group-hover:scale-110 group-hover:rotate-3"
+        />
+      </div>
+    </div>
+  );
+};
+
 import HeadingHero from "../utils/HeadingHero";
 import { useTheme } from "../context/ThemeContext";
 import {
@@ -64,19 +101,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end relative">
-          {/* Main Circle with Image */}
-          <div className={`w-80 h-80 md:w-110 md:h-110 rounded-full overflow-hidden border-2 hover:border-teal-500 transition-all duration-300 group ${
-            isDark ? 'border-white/20' : 'border-gray-900/20'
-          }`}>
-            <img
-              src={user}
-              alt="Hero"
-              loading="lazy"
-              className="w-full h-full md:h-115 object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-        </div>
+       <div className="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end relative">
+        {/* Main Circle with Image */}
+        <ImageWithGlow user={user} />
+      </div>
       </div>
     </section>
   );
