@@ -20,6 +20,7 @@ const About = () => {
           <img
             src={user}
             className="w-full h-full object-cover rounded-xl group-hover:grayscale transition duration-500"
+            loading="lazy"
             alt="User"
           />
           <div className="absolute top-1/2 left-1/2 w-60 h-60 border border-blue-500 transform -translate-x-1/2 -translate-y-1/2 rotate-45 z-0 transition-all duration-500 group-hover:scale-110 group-hover:border-neutral-300"></div>
@@ -37,27 +38,53 @@ const About = () => {
           <p className={`mb-8 text-sm text-justify ${
             isDark ? 'text-neutral-300' : 'text-gray-600'
           }`}>
-            I’m Dharmendra Kumar Ram, a passionate Full-Stack Developer who
-            loves turning ideas into interactive, user-friendly applications.
-            From crafting responsive interfaces to building scalable backends, I
-            focus on creating digital experiences that are both functional and
-            engaging.
+            I’m Dharmendra Kumar Ram, a passionate Full-Stack Developer from Nepal
+  with hands-on experience in designing, developing, and deploying modern
+  web applications. Over the years, I have worked on government systems,
+  healthcare platforms, recruitment portals, startup ecosystems,
+  educational platforms, and enterprise solutions. My goal is to build
+  technology that simplifies processes, improves user experiences, and
+  creates meaningful digital transformation.
           </p>
 
           <p className={`mb-8 text-normal text-justify ${
             isDark ? 'text-neutral-300' : 'text-gray-600'
           }`}>
-            I work with modern technologies like React.js, TypeScript, Node.js,
-            Tailwind CSS, MySQL, Python & Django, and Java Grails. I enjoy
-            collaborating with teams, solving complex problems, and delivering
-            solutions that bring real value to users while staying clean,
-            efficient, and future-ready.
+             Currently working as a Full-Stack Developer at National Incubation &
+  Research Center (NIRC), I contribute to the development of large-scale
+  applications using React.js, TypeScript, JavaScript, Python Django,
+  Java Grails, MySQL, PostgreSQL, and Tailwind CSS. I have successfully
+  delivered projects such as Hospital Management System (HMS),
+  Government With People (GWP), Rakmina Recruitment Portal, Provincial
+  Research and Training Institute Platform, StartupGhar, KIEC, and
+  several business websites. I am continuously learning new technologies
+  and enjoy solving complex technical challenges while maintaining clean,
+  scalable, and efficient code.
           </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-teal-400">2+</h3>
+              <p className="text-sm">Years Experience</p>
+            </div>
 
-          {/* <button className="px-6 py-2 border border-neutral-400 rounded-full cursor-pointer hover:bg-white transition hover:text-neutral-700">
-            Download Resume
-          </button> */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-teal-400">10+</h3>
+              <p className="text-sm">Projects Delivered</p>
+            </div>
+
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-teal-400">6+</h3>
+              <p className="text-sm">Technologies</p>
+            </div>
+
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-teal-400">100%</h3>
+              <p className="text-sm">Dedication</p>
+            </div>
+          </div>
+
         </div>
+        
       </div>
     </section>
   );

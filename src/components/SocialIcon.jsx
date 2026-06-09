@@ -44,6 +44,15 @@ const SocialIcon = () => {
         >
           <FaViber />
         </a>
+        
+        <a
+                href="https://github.com/dharmendraram"
+                target="_blank"
+                className="p-2 border border-gray-600 text-[#298bec]  backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
+              >
+                {" "}
+                <FaGithub />
+              </a>
       </ul>
     </div>
   );

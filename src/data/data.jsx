@@ -33,7 +33,7 @@ import {
 } from "react-icons/si";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { GiMaterialsScience, GiSandsOfTime } from "react-icons/gi";
-import { DiJava, DiPython, DiVisualstudio } from "react-icons/di";
+import { DiJava, DiPython, DiVisualstudio, DiGrails } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
 import { FaHome } from "react-icons/fa";
 import { LuCircleUser, LuContact } from "react-icons/lu";
@@ -62,25 +62,20 @@ export const skillsData = [
       { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
       { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> },
       { name: "React JS", icon: <FaReact className="text-cyan-400" /> },
-      { name: "Next JS", icon: <RiNextjsFill className="text-white" /> },
+      
       {
         name: "Tailwind CSS",
         icon: <RiTailwindCssFill className="text-teal-400" />,
       },
 
-      {
-        name: "Material UI",
-        icon: <GiMaterialsScience className="text-blue-400" />,
-      },
       { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" /> },
     ],
   },
   {
     title: "Backend",
     skills: [
-      { name: "Spring Boot", icon: <SiSpring className="text-green-600" /> },
+      { name: "Grails", icon: <DiGrails className="text-red-600" /> },
       { name: "Django", icon: <DiPython className="text-yellow-400" /> },
-      { name: "Node JS", icon: <FaNodeJs className="text-green-400" /> },
       { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
       { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-500" /> },
@@ -342,9 +337,9 @@ export const experiences = [
   },
   {
     id: 3,
-    company: "Tribhuvan University",
+    company: "Swoyambhu International College, Lagankhel, Lalitpur",
     logo: tu, // replace with actual logo
-    title: "Bachelor in Computer Application",
+    title: "Bachelor in Computer Application (BCA) at Tribhuvan University",
     period: "2020 - 2025", //
     description:
       "Completed a Bachelor’s degree in Computer Application with a strong focus on software development, web technologies, databases, and practical project work. Gained hands-on experience through academic projects and collaborative learning.",

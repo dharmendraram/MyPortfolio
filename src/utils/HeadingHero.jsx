@@ -4,11 +4,11 @@ import { useTheme } from '../context/ThemeContext'
 const HeadingHero = () => {
     const { isDark } = useTheme();
     const roles=[
-        { title: "Frontend Developer" },
-        { title: "Backend Developer" },
-        { title: "Full Stack Developer" },  
-        { title: "Web Developer" },
-        { title: "UI/UX Designer" },
+        { title: "Full-Stack Developer" },
+        { title: "React.js" },
+        { title: "Django" },  
+        { title: "Java Grails" },
+        
     ]
     const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);

@@ -71,6 +71,7 @@ const Portfolio = () => {
                   <img
                     src={item.image}
                     alt={item.title}
+                    loading="lazy"
                     className="w-full h-full object-fill object-center transform hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -164,6 +165,7 @@ const Portfolio = () => {
                     <img
                       src={selectedItem.image}
                       alt={selectedItem.title}
+                      loading="lazy"
                       className="w-full h-full object-fill rounded-md"
                     />
                   </div>
