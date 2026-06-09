@@ -1,0 +1,8 @@
+# Force HTTPS
+http://dharmendraram.com.np/*  https://dharmendraram.com.np/:splat  301!
+
+# Remove www
+https://www.dharmendraram.com.np/*  https://dharmendraram.com.np/:splat  301!
+
+# SPA fallback — React Router support
+/*  /index.html  200
