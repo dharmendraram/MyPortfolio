@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="/logowhite.png" />
+      <square150x150logo src="/logowhite.png" />
+      <wide310x150logo src="/logowhite.png" />
+      <square310x310logo src="/logowhite.png" />
+      <TileColor>#14b8a6</TileColor>
+      <TileImage src="/logowhite.png" />
+    </tile>
+    <notification>
+      <polling-uri src="https://dharmendraram.com.np/" />
+      <frequency>360</frequency>
+      <cycle>1</cycle>
+    </notification>
+  </msapplication>
+</browserconfig>
