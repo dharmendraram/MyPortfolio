@@ -61,30 +61,33 @@ const Home = () => {
       {/* <div className="absolute inset-0"></div> */}
       <div className="container z-10 mx-auto px-2 flex flex-col md:flex-row items-center md:px-8">
         <div className="flex-1 text-center md:text-left">
-          <h3 className="text-2xl font-light capitalize  tracking-wide text-teal-400">
-            I'm Dharmendra Kumar Ram
+          <h3 className="text-2xl font-light tracking-wide text-teal-400">
+            Hello, my name is
           </h3>
+          <h1 className="text-4xl md:text-5xl font-bold mt-2 capitalize">
+            Dharmendra Kumar Ram
+          </h1>
           <HeadingHero />
-          <p className={`mt-4 max-w-3xl text-justify transition-colors duration-300 ${
-            isDark ? 'text-white/40' : 'text-gray-600'
-          }`}>
-            I am a Full-Stack Developer with professional experience in building
-  scalable web applications, enterprise solutions, and digital platforms.
-  Currently working at National Incubation & Research Center (NIRC), I
-  specialize in React.js, JavaScript, TypeScript, Python Django, Java
-  Grails, MySQL, PostgreSQL, and modern frontend technologies. I enjoy
-  transforming complex business requirements into efficient, user-friendly,
-  and high-performance digital solutions that create real impact.
-          </p>
+  {/*        <p className={`mt-4 max-w-3xl text-justify transition-colors duration-300 ${*/}
+  {/*          isDark ? 'text-white/40' : 'text-gray-600'*/}
+  {/*        }`}>*/}
+  {/*          I am a Full-Stack Developer with professional experience in building*/}
+  {/*scalable web applications, enterprise solutions, and digital platforms.*/}
+  {/*Currently working at National Incubation & Research Center (NIRC), I*/}
+  {/*specialize in React.js, JavaScript, TypeScript, Python Django, Java*/}
+  {/*Grails, MySQL, PostgreSQL, and modern frontend technologies. I enjoy*/}
+  {/*transforming complex business requirements into efficient, user-friendly,*/}
+  {/*and high-performance digital solutions that create real impact.*/}
+  {/*        </p>*/}
 
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
             <button
-              onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-2 rounded-full bg-gradient-to-r from-teal-400 to-teal-700 text-white hover:opacity-90 transition-opacity
+              onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-2 rounded-full bg-gradient-to-r from-teal-400 to-teal-700 text-white hover:opacity-90 transition-opacity
             "
             >
               {" "}
-              View my Work
+              Hire Me
             </button>
 
              <button
