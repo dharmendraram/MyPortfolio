@@ -20,7 +20,7 @@ const SocialIcon = () => {
     >
       <ul className="w-full flex justify-around flex-col gap-2 items-center text-white">
         <a
-          href="https://www.linkedin.com/in/dharmendra-kumar-ram-14a660279/"
+          href="https://www.linkedin.com/in/dharmendraram/"
           target="_blank"
           className="p-2 border border-[#0A63BC] text-[#298bec] backdrop-blur-md rounded-full hover:bg-teal-500 transition-colors  cursor-pointer hover:text-white"
         >
