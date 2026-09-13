@@ -1,0 +1,58 @@
+# ═══════════════════════════════════════════
+# robots.txt — Dharmendra Kumar Ram Portfolio
+# https://dharmendraram.com.np/
+# ═══════════════════════════════════════════
+
+# ── All Crawlers ──────────────────────────
+User-agent: *
+Allow: /
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /preview-image.jpg
+
+Disallow: /src/
+Disallow: /*.map$
+Disallow: /node_modules/
+
+Crawl-delay: 5
+
+# ── Google ────────────────────────────────
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /preview-image.jpg
+Allow: /logowhite.png
+
+# ── Bing ──────────────────────────────────
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# ── Social Media Crawlers ─────────────────
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# ── Bad Bots ──────────────────────────────
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# ── Sitemaps ──────────────────────────────
+Sitemap: https://dharmendraram.com.np/sitemap.xml
+Sitemap: https://dharmendraram.com.np/sitemap-index.xml
