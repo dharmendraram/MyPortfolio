@@ -33,7 +33,7 @@ const About = () => {
           <h2 className={`text-3xl font-bold mb-4 w-fit border-b-2 ${
             isDark ? 'border-neutral-500' : 'border-gray-400'
           }`}>
-            About <span className="text-outline">Me</span>
+            About <span className="text-outline">the Developer</span>
           </h2>
           <p className={`mb-8 text-sm text-justify ${
             isDark ? 'text-neutral-300' : 'text-gray-600'

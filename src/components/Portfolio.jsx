@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import { portfolioItems } from "../data/data";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { motion, AnimatePresence } from "framer-motion";
+import { Autoplay, Navigation } from "swiper/modules";
+import * as FramerMotion from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import "swiper/css";
+import "swiper/css/navigation";
+
+const FilmHoles = ({ frameNumber, bottom = false }) => (
+  <div className="film-holes" aria-hidden="true">
+    {Array.from({ length: 6 }).map((_, index) => (
+      <span className="film-hole" key={index} />
+    ))}
+    <span className={`film-frame-number ${bottom ? "film-frame-number--bottom" : ""}`}>
+      {String(frameNumber).padStart(2, "0")}
+    </span>
+  </div>
+);
 
 const Portfolio = () => {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -27,119 +39,86 @@ const Portfolio = () => {
             isDark ? "text-neutral-300" : "text-gray-700"
           }`}
         >
-          My <span className="text-outline">Portfolio</span>
+          Selected <span className="text-outline">Work</span>
         </h2>
         <p
           className={`text-center max-w-2xl mx-auto mb-8 ${
             isDark ? "text-neutral-400" : "text-gray-600"
           }`}
         >
-          A showcase of my projects, highlighting my skills and expertise in web
-          development.
+          A curated selection of digital products, platforms, and experiences I’ve helped bring to life.
         </p>
 
-        {/* Swiper Carousel */}
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          loop={true}
-          freeMode={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          speed={7000}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {portfolioItems.map((item, index) => (
-            <SwiperSlide key={index}>
-              <motion.div
-                whileHover={{ y: -5 }}
-                onClick={() => handleCardClick(item)}
-                className={`backdrop-blur-lg rounded-lg overflow-hidden border cursor-pointer transition-all h-[320px] flex flex-col ${
-                  isDark
-                    ? "bg-white/10 border-white/20"
-                    : "bg-gray-900/10 border-gray-900/20"
-                }`}
-              >
-                <div className="h-52 overflow-hidden flex-shrink-0">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                    className="w-full h-full object-fill object-center transform hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-2 flex-1 flex flex-col justify-center text-center">
-                  <div className="flex items-center justify-between mb-2 me-2">
-                  
-                    {item.company === "Company" ? (
-                      <span className="text-xs px-2 py-1.5 rounded-md bg-yellow-700 text-white">
-                        {item.company}
-                      </span>
-                    ) : (
-                      <span className="text-xs px-2 py-1.5 rounded-md bg-green-500/20 text-green-600">
-                        {item.company}
-                      </span>
-                    )}
-                      <div className="flex items-center gap-1">
-                      {item.username && (
-                      <p
-                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
-                      >
-                        User: {item.username}
-                      </p>
-                    )}
+        {/* Cinematic film-reel carousel */}
+        <div className={`portfolio-reel ${isDark ? "portfolio-reel--dark" : "portfolio-reel--light"}`}>
+          <div className="portfolio-reel-fade portfolio-reel-fade--left" />
+          <div className="portfolio-reel-fade portfolio-reel-fade--right" />
 
-                    {item.password && (
-                      <p
-                        className={`text-xs ${isDark ? "text-white/70" : "text-gray-600"}`}
-                      >
-                        Pw: {item.password}
-                      </p>
-                    )}
+          <button className="portfolio-reel-nav portfolio-reel-prev" aria-label="Previous project">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+          <button className="portfolio-reel-nav portfolio-reel-next" aria-label="Next project">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+
+          <Swiper
+            className="portfolio-reel-swiper"
+            modules={[Autoplay, Navigation]}
+            slidesPerView="auto"
+            centeredSlides
+            loop
+            grabCursor
+            slideToClickedSlide
+            navigation={{
+              prevEl: ".portfolio-reel-prev",
+              nextEl: ".portfolio-reel-next",
+            }}
+            autoplay={{
+              delay: 4200,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            speed={800}
+          >
+            {portfolioItems.map((item, index) => (
+              <SwiperSlide key={item.title}>
+                <button
+                  type="button"
+                  onClick={() => handleCardClick(item)}
+                  className="film-frame"
+                  aria-label={`Open ${item.title} project details`}
+                >
+                  <FilmHoles frameNumber={index + 1} />
+                  <div className="film-image-wrap">
+                    <img src={item.image} alt={item.title} loading="lazy" />
+                    <div className="film-vignette" />
+                    <span className="film-scene-label">
+                      Project {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="film-project-info">
+                      <span>{item.company}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.category}</p>
                     </div>
                   </div>
-
-                  <h3
-                    className={`text-sm font-semibold mb-0 pb-0 ${
-                      isDark ? "text-neutral-200" : "text-gray-900"
-                    }`}
-                  >
-                    {item.title}
-                  </h3>
-                  <div className="flex justify-center gap-2 items-center">
-                    
-                    <p
-                      className={`text-sm  ${
-                        isDark ? "text-white/100" : "text-gray-600"
-                      }`}
-                    >
-                      {item.category}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                  <FilmHoles frameNumber={index + 1} bottom />
+                </button>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
 
       {/* Popup Modal */}
-      <AnimatePresence>
+      <FramerMotion.AnimatePresence>
         {selectedItem && (
-          <motion.div
+          <FramerMotion.motion.div
             className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.div
+            <FramerMotion.motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -283,10 +262,10 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </FramerMotion.motion.div>
+          </FramerMotion.motion.div>
         )}
-      </AnimatePresence>
+      </FramerMotion.AnimatePresence>
     </section>
   );
 };

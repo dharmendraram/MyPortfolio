@@ -1,6 +1,5 @@
 import React from "react";
 import { experiences } from "../data/data";
-import { span } from "framer-motion/client";
 import { useTheme } from "../context/ThemeContext";
 
 
@@ -16,12 +15,12 @@ const Experience = () => {
       <h2 className={`text-3xl font-bold text-center ${
         isDark ? 'text-neutral-300' : 'text-gray-700'
       }`}>
-        My <span className="text-outline">Experience</span> & Education
+        Experience <span className="text-outline">& Education</span>
       </h2>
       <p className={`text-center max-w-xl mx-auto mb-5 ${
         isDark ? 'text-neutral-400' : 'text-gray-600'
       }`}>
-        An overview of my professional experience and educational background.
+        A timeline of the roles, collaborations, and learning that shaped my work.
       </p>
 
       <div className="relative max-w-5xl mx-auto px-4 py-5">

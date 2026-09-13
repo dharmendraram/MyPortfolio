@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&display=swap');
 
 /* tailwind css  */
 @import "tailwindcss";
@@ -11,8 +11,13 @@
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Barlow Condensed", "Barlow Condensed Fallback", sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html,
+body {
+    font-size: 13px;
 }
 
 li {
@@ -70,4 +75,269 @@ body.light {
 }
 .page-wrapper::after {
     right: 18%;
+}
+
+/* Portfolio film-reel slider */
+.portfolio-reel {
+    --reel-bg: #f8fafc;
+    --reel-ink: #ffffff;
+    --reel-frame: #ffffff;
+    --reel-text: #1f2937;
+    position: relative;
+    /* Break out of the centered content container and fill the viewport. */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    overflow: hidden;
+    padding: 18px 0;
+    background: var(--reel-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 48px rgba(31, 41, 55, 0.12);
+}
+
+.portfolio-reel--dark {
+    --reel-bg: #202020;
+    --reel-ink: #ffffff;
+    --reel-frame: #050505;
+    --reel-text: #f5f5f5;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.portfolio-reel-swiper {
+    overflow: visible !important;
+}
+
+.portfolio-reel-swiper .swiper-slide {
+    width: clamp(275px, 38vw, 460px);
+    opacity: 0.35;
+    filter: grayscale(0.45) brightness(0.68);
+    transform: scale(0.94);
+    transition: opacity 0.8s ease, filter 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.portfolio-reel-swiper .swiper-slide-active {
+    opacity: 1;
+    filter: none;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* The dark reel can use the dramatic dimmed-film treatment. In light mode,
+   keep the neighboring project thumbnails clear instead of washed out. */
+.portfolio-reel--light .portfolio-reel-swiper .swiper-slide {
+    opacity: 0.72;
+    filter: none;
+}
+
+.portfolio-reel--light .portfolio-reel-swiper .swiper-slide-active {
+    opacity: 1;
+}
+
+.film-frame {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    color: var(--reel-text);
+    text-align: left;
+    background: var(--reel-frame);
+    border: 0;
+    border-right: 10px solid var(--reel-frame);
+    cursor: pointer;
+}
+
+.film-holes {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: clamp(30px, 4vw, 42px);
+    padding: 0 clamp(12px, 2vw, 22px);
+    background: var(--reel-frame);
+}
+
+.film-hole {
+    width: clamp(9px, 1.25vw, 13px);
+    height: clamp(15px, 2.1vw, 22px);
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: var(--reel-ink);
+}
+
+.film-frame-number {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    color: #e59e30;
+    font-family: monospace;
+    font-size: clamp(9px, 1vw, 12px);
+    font-weight: 700;
+    line-height: 1;
+    transform: translateX(-50%);
+}
+
+.film-frame-number--bottom {
+    top: auto;
+    bottom: 2px;
+}
+
+.film-image-wrap {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: #05060b;
+}
+
+.film-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 6s linear;
+}
+
+.swiper-slide-active .film-image-wrap img {
+    transform: scale(1.08);
+}
+
+.portfolio-reel--light .swiper-slide-active .film-image-wrap img {
+    transform: scale(1.02);
+}
+
+.film-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.94) 0%, transparent 58%);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.6);
+}
+
+.film-scene-label {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: rgba(255, 255, 255, 0.78);
+    background: rgba(0, 0, 0, 0.65);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.film-project-info {
+    position: absolute;
+    right: 16px;
+    bottom: 14px;
+    left: 16px;
+    color: #fff;
+}
+
+.film-project-info span {
+    color: #e59e30;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.film-project-info h3 {
+    display: -webkit-box;
+    margin: 3px 0;
+    overflow: hidden;
+    font-size: clamp(14px, 1.6vw, 20px);
+    font-weight: 700;
+    line-height: 1.25;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.film-project-info p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 11px;
+}
+
+.portfolio-reel-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 4;
+    width: clamp(45px, 11vw, 130px);
+    pointer-events: none;
+}
+
+.portfolio-reel-fade--left {
+    left: 0;
+    background: linear-gradient(to right, var(--reel-bg) 8%, transparent 100%);
+}
+
+.portfolio-reel-fade--right {
+    right: 0;
+    background: linear-gradient(to left, var(--reel-bg) 8%, transparent 100%);
+}
+
+.portfolio-reel--light .portfolio-reel-fade--left {
+    background: linear-gradient(to right, var(--reel-bg) 2%, transparent 100%);
+}
+
+.portfolio-reel--light .portfolio-reel-fade--right {
+    background: linear-gradient(to left, var(--reel-bg) 2%, transparent 100%);
+}
+
+.portfolio-reel-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 6;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    color: var(--reel-ink);
+    background: color-mix(in srgb, var(--reel-frame) 78%, transparent);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition: border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.portfolio-reel-nav:hover {
+    border-color: #e59e30;
+    background: #e59e30;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.portfolio-reel-nav span {
+    margin-top: -3px;
+    font-family: Arial, sans-serif;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.portfolio-reel-prev { left: clamp(8px, 2vw, 22px); }
+.portfolio-reel-next { right: clamp(8px, 2vw, 22px); }
+
+@media (max-width: 640px) {
+    .portfolio-reel-nav {
+        width: 36px;
+        height: 36px;
+    }
+
+    .portfolio-reel-swiper .swiper-slide {
+        width: min(78vw, 350px);
+    }
+
+    .film-project-info {
+        right: 12px;
+        bottom: 10px;
+        left: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-reel-swiper .swiper-slide,
+    .film-image-wrap img {
+        transition-duration: 0.01ms;
+    }
 }

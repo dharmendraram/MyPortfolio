@@ -12,13 +12,12 @@ const Skills = () => {
         <h2 className={`text-3xl font-bold text-center mb-1 ${
           isDark ? 'text-neutral-300' : 'text-gray-700'
         }`}>
-          {" "}
-          <span className="text-outline">Skills</span>
+          The <span className="text-outline">Toolkit</span>
         </h2>
         <p className={`text-center max-w-xl mx-auto mb-5 ${
           isDark ? 'text-neutral-400' : 'text-gray-600'
         }`}>
-          The tools and technologies I use to bring idreas to life.
+          The technologies I use to turn complex ideas into clear, reliable products.
         </p>
         <div className="grid md:grid-cols-2 gap-10">
           {skillsData.map((skill, index) => (

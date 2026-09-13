@@ -51,6 +51,7 @@ import pratishthan from "../assets/portfolio/pratishthan.png";
 import brandwave from "../assets/portfolio/brandwave.png";
 import aarambha from "../assets/portfolio/aarambha.png";
 import startupghar from "../assets/portfolio/startupghar.png";
+import akriti from "../assets/portfolio/akarti.png";
 
 export const skillsData = [
   {
@@ -178,7 +179,7 @@ export const portfolioItems = [
     image: hms,
     technology: ["HTML", "CSS", "JavaScript", "Django"],
     github: "",
-    link: "https://hms.nirc.com.np/login/",
+    link: "https://hamrohms.nirc.com.np/login/",
     description:
       "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
   },
@@ -212,6 +213,19 @@ export const portfolioItems = [
     link: "https://training.nirc.com.np/",
     description:
       "An official digital platform developed for the Government of Nepal’s Provincial Research and Training Institute to deliver training programs, research resources, and institutional information. The system improves accessibility, transparency, and digital learning for government officials and trainees. Developed collaboratively with the NIRC team.",
+  },
+  {
+  title: "Akriti Advertising – Creative Advertising & Marketing Solutions",
+  category: "Full Stack Developer",
+  company: "Personal",
+  username: "",
+  password: "",
+  image: akriti,
+  technology: ["HTML", "CSS", "JavaScript", "Django"],
+  github: "",
+  link: "https://akritiadvertising.com.np/",
+  description:
+    "Akriti Advertising provides creative advertising and promotional solutions designed to help businesses build their brand presence, reach their target audience, and effectively promote their products and services.",
   },
   {
     title: "Rakmina Recruitment & Migration Platform",
