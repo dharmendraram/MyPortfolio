@@ -157,6 +157,7 @@ export const testimonials = [
 // Portfolio data
 export const portfolioItems = [
   {
+    id: "proj-1",
     title: "National Incubation and Research Center (NIRC) Website",
     category: "Full Stack Developer",
     company: "Company",
@@ -171,6 +172,7 @@ export const portfolioItems = [
   },
 
   {
+    id: "proj-2",
     title: "Hospital Management System (HMS)",
     category: "Core Designer & Lead Developer",
     company: "Company",
@@ -184,6 +186,7 @@ export const portfolioItems = [
       "A comprehensive digital platform designed to streamline hospital operations, including patient registration, medical record management, and administrative workflows. Developed by Me & NIRC Team to enhance healthcare service efficiency.",
   },
   {
+    id: "proj-3",
     title: "Government With People (GWP)",
     category: "Core Front-End Developer",
     company: "Company",
@@ -197,6 +200,7 @@ export const portfolioItems = [
       "A comprehensive digital platform designed for local municipalities to provide citizens with easy access to information, online services, and community updates. The website enhances transparency, efficiency, and engagement between the Palika and its residents. Developed by Me & NIRC Team.",
   },
   {
+    id: "proj-4",
     title: "प्रदेश अनुसन्धान तथा प्रशिक्षण प्रतिष्ठान",
     category: "Front-End Developer",
     company: "Company",
@@ -215,19 +219,21 @@ export const portfolioItems = [
       "An official digital platform developed for the Government of Nepal’s Provincial Research and Training Institute to deliver training programs, research resources, and institutional information. The system improves accessibility, transparency, and digital learning for government officials and trainees. Developed collaboratively with the NIRC team.",
   },
   {
-  title: "Akriti Advertising – Creative Advertising & Marketing Solutions",
-  category: "Full Stack Developer",
-  company: "Personal",
-  username: "",
-  password: "",
-  image: akriti,
-  technology: ["HTML", "CSS", "JavaScript", "Django"],
-  github: "",
-  link: "https://akritiadvertising.com.np/",
-  description:
-    "Akriti Advertising provides creative advertising and promotional solutions designed to help businesses build their brand presence, reach their target audience, and effectively promote their products and services.",
+    id: "proj-5",
+    title: "Akriti Advertising – Creative Advertising & Marketing Solutions",
+    category: "Full Stack Developer",
+    company: "Personal",
+    username: "",
+    password: "",
+    image: akriti,
+    technology: ["HTML", "CSS", "JavaScript", "Django"],
+    github: "",
+    link: "https://akritiadvertising.com.np/",
+    description:
+      "Akriti Advertising provides creative advertising and promotional solutions designed to help businesses build their brand presence, reach their target audience, and effectively promote their products and services.",
   },
   {
+    id: "proj-6",
     title: "Rakmina Recruitment & Migration Platform",
     category: "Lead Front-End Developer",
     company: "Company",
@@ -241,6 +247,7 @@ export const portfolioItems = [
       "A professional recruitment and migration portal that connects Nepali talent with global career opportunities, offering end-to-end support from job search to visa processing.",
   },
   {
+    id: "proj-7",
     title:
       "BrandWave — Digital Agency in Biratnagar | Web, Marketing & Event Services",
     category: "Full Stack Developer",
@@ -255,6 +262,7 @@ export const portfolioItems = [
       "BrandWave is a premier digital agency in Biratnagar, Nepal, offering website development, digital marketing, meta ads, branding, and event shooting services to elevate your brand.",
   },
   {
+    id: "proj-8",
     title: "Portfolio Website",
     category: "Full Stack Developer",
     company: "Personal",
@@ -268,6 +276,7 @@ export const portfolioItems = [
       "A personal portfolio website, showcasing my interests, knowledge, experiences, skills and projects that I have done.In this digital era it has been mandatory to have digital exiatence. It becomes even more neccessary for the people in IT field. Personal portfolio website the resume of this digital world.",
   },
   {
+    id: "proj-9",
     title: "KIEC – Study Abroad & Immigration Services | Your Global Gateway",
     category: "Full Stack Developer",
     company: "Personal",
@@ -281,6 +290,7 @@ export const portfolioItems = [
       "KIEC guides students and professionals in achieving global education and migration goals — from university selection to visa support and pre-departure readiness.",
   },
   {
+    id: "proj-10",
     title: "Aarambha Foundation",
     category: "Front-End Developer",
     company: "Personal",
@@ -294,6 +304,7 @@ export const portfolioItems = [
       "A purpose-driven digital platform focused on promoting quality education, better health, and a safe, nurturing environment for children across the nation. The platform supports initiatives that amplify children’s voices, protect their rights, and create equal opportunities for learning, growth, and well-being.",
   },
   {
+    id: "proj-11",
     title: "StartupGhar",
     category: "Full Stack Developer",
     company: "Personal",
@@ -309,7 +320,7 @@ export const portfolioItems = [
 ];
 export const experiences = [
   {
-    id: 1,
+    id: "exp-1",
     company: "National Incubation & Research Center",
     logo: nirc,
     title: "Full-Stack Developer",
@@ -330,11 +341,11 @@ export const experiences = [
     ],
   },
   {
-    id: 2,
+    id: "exp-2",
     company: "National Incubation & Research Center",
-    logo: nirc, // replace with actual logo
+    logo: nirc,
     title: "Front-End Developer",
-    period: "Oct 2023 - Jul 2024", //
+    period: "Oct 2023 - Jul 2024",
     description:
       "Designed and implemented responsive, user-friendly interfaces using modern frontend technologies. Collaborated with designers and backend developers to deliver seamless user experiences. Optimized web applications for performance, accessibility, and cross-browser compatibility.",
     skills: [
@@ -350,11 +361,11 @@ export const experiences = [
     ],
   },
   {
-    id: 3,
+    id: "exp-3",
     company: "Swoyambhu International College, Lagankhel, Lalitpur",
-    logo: tu, // replace with actual logo
+    logo: tu,
     title: "Bachelor in Computer Application (BCA) at Tribhuvan University",
-    period: "2020 - 2025", //
+    period: "2020 - 2025",
     description:
       "Completed a Bachelor’s degree in Computer Application with a strong focus on software development, web technologies, databases, and practical project work. Gained hands-on experience through academic projects and collaborative learning.",
     skills: [],

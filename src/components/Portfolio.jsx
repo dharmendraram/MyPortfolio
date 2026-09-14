@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { portfolioItems } from "../data/data";
+import { usePortfolio } from "../context/PortfolioContext";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import * as FramerMotion from "framer-motion";
@@ -19,6 +19,7 @@ const FilmHoles = ({ frameNumber, bottom = false }) => (
 );
 
 const Portfolio = () => {
+  const { projects: portfolioItems } = usePortfolio();
   const [selectedItem, setSelectedItem] = useState(null);
   const { isDark } = useTheme();
 

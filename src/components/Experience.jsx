@@ -1,11 +1,10 @@
 import React from "react";
-import { experiences } from "../data/data";
+import { useExperience } from "../context/ExperienceContext";
 import { useTheme } from "../context/ThemeContext";
-
-
 
 const Experience = () => {
   const { isDark } = useTheme();
+  const { experiences } = useExperience();
   
   return (
     <section

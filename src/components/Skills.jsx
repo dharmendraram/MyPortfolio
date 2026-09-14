@@ -1,5 +1,6 @@
 import React from "react";
 import { skillsData } from "../data/data";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import GridLine from "../utils/GridLine";
 import { useTheme } from "../context/ThemeContext";

@@ -22,7 +22,7 @@ const sectionTitle = (doc, label, x1, x2, y) => {
   return y + 7;
 };
 
-const wrapText = (doc, text, x, maxW, y, lineH, pageH, addPage) => {
+const _wrapText = (doc, text, x, maxW, y, lineH, pageH, addPage) => {
   const lines = doc.splitTextToSize(text, maxW);
   for (const line of lines) {
     if (y > pageH - 18) { addPage(); y = 18; }

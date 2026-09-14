@@ -4,6 +4,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { PiPhone, PiMapPinFill } from "react-icons/pi";
 import { useTheme } from "../context/ThemeContext";
+import { supabase } from "../lib/supabase";
 
 const socials = [
   { icon: <FaGithub />, href: "https://github.com/", label: "GitHub" },
@@ -22,10 +23,46 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSubmitted(false);
+
+    // 1. Insert into Supabase cloud database
+    try {
+      await supabase.from("inquiries").insert([
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "",
+          subject: form.subject || "Portfolio Contact Inquiry",
+          message: form.message,
+          read: false,
+        },
+      ]);
+    } catch (err) {
+      console.warn("Supabase insert skipped or failed:", err);
+    }
+
+    // 2. Save inquiry to localStorage fallback for Admin Portal
+    try {
+      const stored = localStorage.getItem("portfolio_inquiries");
+      const existing = stored ? JSON.parse(stored) : [];
+      const newInquiry = {
+        id: "inq-" + Date.now(),
+        name: form.name,
+        email: form.email,
+        phone: form.phone || "",
+        subject: form.subject || "Portfolio Contact Inquiry",
+        message: form.message,
+        date: new Date().toISOString(),
+        read: false,
+      };
+      localStorage.setItem("portfolio_inquiries", JSON.stringify([newInquiry, ...existing]));
+    } catch (err) {
+      console.error("Error storing contact inquiry locally:", err);
+    }
+
     const message = [
       "Hello Dharmendra Sir, I would like to discuss a project.", "",
       `Name: ${form.name}`, `Email: ${form.email}`,
