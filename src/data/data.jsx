@@ -1,44 +1,30 @@
 import {
-  FaAngular,
   FaBootstrap,
-  FaCss3Alt,
+  FaDocker,
   FaHtml5,
   FaJs,
-  FaNodeJs,
   FaReact,
-  FaSass,
 } from "react-icons/fa";
-import { MdOutlineSettingsApplications } from "react-icons/md";
 import {
-  SiC,
-  SiCanva,
-  SiCplusplus,
   SiFigma,
   SiGit,
   SiGithub,
   SiGitlab,
   SiIntellijidea,
-  SiJavascript,
   SiMongodb,
   SiMysql,
-  SiNetlify,
-  SiPhp,
   SiPostgresql,
   SiPostman,
-  SiPycharm,
   SiSpring,
   SiTypescript,
-  SiVercel,
-  SiWebstorm,
+  SiUbuntu,
 } from "react-icons/si";
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { GiMaterialsScience, GiSandsOfTime } from "react-icons/gi";
+import { GiSandsOfTime } from "react-icons/gi";
 import { DiJava, DiPython, DiVisualstudio, DiGrails } from "react-icons/di";
-import { TbBrandCSharp } from "react-icons/tb";
 import { FaHome } from "react-icons/fa";
 import { LuCircleUser, LuContact } from "react-icons/lu";
 import { IoBagHandleOutline } from "react-icons/io5";
-
 import nirc from "../assets/nirc.png";
 import tu from "../assets/tu.png";
 import rakmina from "../assets/portfolio/rakmina.png";
@@ -53,67 +39,59 @@ import aarambha from "../assets/portfolio/aarambha.png";
 import startupghar from "../assets/portfolio/startupghar.png";
 import akriti from "../assets/portfolio/akarti.png";
 
+
 export const skillsData = [
   {
-    title: "Frontend",
+    title: "Backend Development",
     skills: [
-      { name: "HTML", icon: <FaHtml5 className="text-orange-500" /> },
-      { name: "CSS", icon: <FaCss3Alt className="text-blue-500" /> },
-      { name: "SASS", icon: <FaSass className="text-pink-400" /> },
-      { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> },
-      { name: "React JS", icon: <FaReact className="text-cyan-400" /> },
+      { name: "Java", icon: <DiJava className="text-red-600" />, level: 70, years: "1y" },
+      { name: "Python", icon: <DiPython className="text-yellow-400" />, level: 80, years: "2y" },
+      { name: "Django REST framework", icon: <DiPython className="text-yellow-400" />, level: 78, years: "2y" },
+      { name: "Grails", icon: <DiGrails className="text-red-600" />, level: 70, years: "2y" },
+      { name: "Spring Boot", icon: <SiSpring className="text-green-500" />, level: 50, years: "1y" },
+    ],
+  },
+  {
+    title: "Database & Storage",
+    skills: [
+      { name: "MySQL", icon: <SiMysql className="text-blue-400" />, level: 90, years: "2y" },
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-500" />, level: 70, years: "1y" },
+      { name: "MongoDB", icon: <SiMongodb className="text-green-500" />, level: 60, years: "1y" },
+    ],
+  },
+  {
+    title: "Frontend Development",
+    skills: [
+      { name: "React JS", icon: <FaReact className="text-cyan-400" />, level: 85, years: "2y" },
+      { name: "Next.js", icon: <RiNextjsFill className="text-white" />, level: 80, years: "2y" },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-400" />, level: 85, years: "2y" },
+      { name: "JavaScript", icon: <FaJs className="text-yellow-400" />, level: 90, years: "3y" },
+      { name: "HTML5 / CSS3", icon: <FaHtml5 className="text-orange-500" />, level: 90, years: "3y" },
+      { name: "Tailwind CSS", icon: <RiTailwindCssFill className="text-teal-400" />, level: 85, years: "2y" },
+      { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" />, level: 90, years: "3y" },
       
-      {
-        name: "Tailwind CSS",
-        icon: <RiTailwindCssFill className="text-teal-400" />,
-      },
+    ],
+  },
+  
+  {
+    title: "DevOps & Deployment",
+    skills: [
+      { name: "Docker", icon: <FaDocker className="text-blue-500" />, level: 70, years: "1y" },
+      { name: "Docker Compose", icon: <FaDocker className="text-blue-500" />, level: 50, years: "1y" },
+      {name:"Linux (Ubuntu)", icon:<SiUbuntu className="text-orange-500" />, level: 75, years: "2y"},
+      { name: "Git / GitHub", icon: <SiGit className="text-orange-500" />, level: 92, years: "3y" },
+      { name: "Github Actions", icon: <SiGithub className="text-gray-800" />, level: 80, years: "2y" },
+      { name: "GitLab", icon: <SiGitlab className="text-orange-500" />, level: 75, years: "2y" },
 
-      { name: "Bootstrap", icon: <FaBootstrap className="text-purple-600" /> },
     ],
   },
   {
-    title: "Backend",
+    title: "Tools & Software",
     skills: [
-      { name: "Grails", icon: <DiGrails className="text-red-600" /> },
-      { name: "Django", icon: <DiPython className="text-yellow-400" /> },
-      { name: "MySQL", icon: <SiMysql className="text-blue-400" /> },
-      { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
-      { name: "PostgreSQL", icon: <SiPostgresql className="text-sky-500" /> },
-    ],
-  },
-  {
-    title: "Languages",
-    skills: [
-      { name: "C", icon: <SiC className="text-blue-400" /> },
-      { name: "PHP", icon: <SiPhp className="text-indigo-500" /> },
-      { name: "Java", icon: <DiJava className="text-red-600" /> },
-      { name: "Python", icon: <DiPython className="text-yellow-400" /> },
-      {
-        name: "JavaScript",
-        icon: <SiJavascript className="text-yellow-400" />,
-      },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-400" /> },
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
-      { name: "Git", icon: <SiGit className="text-orange-500" /> },
-      { name: "GitHub", icon: <SiGithub className="text-white" /> },
-      { name: "GitLab", icon: <SiGitlab className="text-orange-500" /> },
-      { name: "VS Code", icon: <DiVisualstudio className="text-blue-500" /> },
-      {
-        name: "IntelliJ IDEA",
-        icon: <SiIntellijidea className="text-[#087CFA]" />,
-      },
-      { name: "WebStorm", icon: <SiWebstorm className="text-[#00CFFF]" /> },
-      { name: "PyCharm", icon: <SiPycharm className="text-[#21D789]" /> },
-      { name: "Postman", icon: <SiPostman className="text-orange-400" /> },
-      { name: "Vercel", icon: <SiVercel className="text-white" /> },
-      { name: "Netlify", icon: <SiNetlify className="text-teal-400" /> },
-      { name: "Figma", icon: <SiFigma className="text-pink-500" /> },
-      { name: "Canva", icon: <SiCanva className="text-[#00C4CC]" /> },
+      { name: "Postman", icon: <SiPostman className="text-orange-400" />, level: 95, years: "2y" },
+      { name: "Figma", icon: <SiFigma className="text-pink-500" />, level: 75, years: "2y" },
+      { name: "VS Code", icon: <DiVisualstudio className="text-blue-500" />, level: 95, years: "3y" },
+      { name:"IntelliJ IDEA", icon:<SiIntellijidea className="text-blue-500" />, level: 80, years: "2y"},
     ],
   },
 ];

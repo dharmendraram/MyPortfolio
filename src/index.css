@@ -3,6 +3,11 @@
 /* tailwind css  */
 @import "tailwindcss";
 
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 :root {
   --bg-primary: #202020;
   --bg-secondary: #ffffff;
@@ -48,6 +53,22 @@ body.dark {
 body.light {
     background-color: var(--bg-secondary);
     color: var(--text-secondary);
+}
+
+html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
+
+::selection {
+    background: #14b8a6;
+    color: #fff;
+}
+
+.hero-grid {
+    background-image:
+        linear-gradient(rgba(45, 212, 191, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(45, 212, 191, 0.055) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: linear-gradient(to bottom, black, transparent 92%);
 }
 
 .border-line {

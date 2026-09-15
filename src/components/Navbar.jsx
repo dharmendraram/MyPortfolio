@@ -42,16 +42,14 @@ const Navbar = () => {
   }
   // fixed bottom-4 left-1/2 py-1 transform -translate-x-1/2 z-50 lg:w-1/4 md:w-1/2 sm:1-1/2 w-10/12 bg-white/10 border border-white/20 rounded-full flex justify-center shadow-xl transition-all
   return (
-    <div className={`fixed 
-             bottom-4 left-1/2 
-             transform -translate-x-1/2 
-             z-50  py-1
-             lg:top-4 lg:bottom-auto  
-             lg:w-1/4 md:w-1/2 sm:w-1/2 w-10/12 
-             rounded-full flex justify-center shadow-xl transition-all ${
+    <nav aria-label="Primary navigation" className={`fixed 
+             bottom-4 left-1/2 -translate-x-1/2 z-50 p-1.5
+             lg:top-5 lg:bottom-auto lg:left-auto lg:right-6 lg:translate-x-0
+             w-[min(92%,420px)] lg:w-auto
+             rounded-full flex justify-center shadow-2xl backdrop-blur-xl transition-all ${
                isDark 
-                 ? 'bg-white/10 border border-white/20' 
-                 : 'bg-gray-900/10 border border-gray-900/20'
+                 ? 'bg-[#181818]/80 border border-white/15' 
+                 : 'bg-white/85 border border-gray-900/10'
              }`}>
       <ul className={`w-full flex justify-around items-center ${
         isDark ? 'text-white' : 'text-gray-900'
@@ -62,20 +60,21 @@ const Navbar = () => {
             className="cursor-pointer hover:text-white/100 transition-all"
           >
             <button onClick={() => handleClick(item.id)}
-              className={`flex items-center justify-center cursor-pointer p-3 h-10 w-10 rounded-full transition-all duration-300 ${
+              className={`flex items-center justify-center gap-2 cursor-pointer px-3 h-10 rounded-full transition-all duration-300 ${
                 isActive === item.id
-                  ? "bg-teal-500/30 text-teal-600"
+                  ? "bg-teal-500 text-white shadow-lg shadow-teal-500/20"
                   : isDark 
-                    ? "bg-white/10 hover:bg-white/30" 
-                    : "bg-gray-900/10 hover:bg-gray-900/30"
+                    ? "hover:bg-white/10 text-neutral-300" 
+                    : "hover:bg-gray-900/5 text-gray-600"
               }`} title={item.title}
             >
-              {item.icon}
+              <span className="text-base">{item.icon}</span>
+              <span className="hidden lg:inline text-xs font-semibold uppercase tracking-wider">{item.title}</span>
             </button>
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

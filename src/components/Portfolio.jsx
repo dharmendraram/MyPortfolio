@@ -32,24 +32,33 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="py-10 px-6 border-t border-[#444]">
-      <div className="mx-auto container">
-        {/* Section Title */}
-        <h2
-          className={`text-3xl font-bold text-center mb-3 ${
-            isDark ? "text-neutral-300" : "text-gray-700"
-          }`}
-        >
-          Selected <span className="text-outline">Work</span>
-        </h2>
-        <p
-          className={`text-center max-w-2xl mx-auto mb-8 ${
+    <section id="portfolio" className="py-10 border-t border-[#444]">
+      <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-18">
+       {/* Section header */}
+        <div className="mb-5 sm:mb-5 md:mb-5">
+          <div className="font-mono text-[10px] sm:text-xs text-gray-500 mb-2">
+            <span className="text-green-500">$</span>{" "}
+            <span className="text-blue-400">cat</span> portfolio.json
+          </div>
+          <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Selected{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-teal-500 bg-clip-text text-transparent">
+              Work
+            </span>
+          </h2>
+           <p
+          className={` ${
             isDark ? "text-neutral-400" : "text-gray-600"
           }`}
         >
           A curated selection of digital products, platforms, and experiences I’ve helped bring to life.
         </p>
 
+        </div>
+        </div>
+      <div className="mx-auto container">
+        
+      
         {/* Cinematic film-reel carousel */}
         <div className={`portfolio-reel ${isDark ? "portfolio-reel--dark" : "portfolio-reel--light"}`}>
           <div className="portfolio-reel-fade portfolio-reel-fade--left" />
@@ -267,6 +276,19 @@ const Portfolio = () => {
           </FramerMotion.motion.div>
         )}
       </FramerMotion.AnimatePresence>
+
+      {/* Footer terminal line */}
+      <div className={`px-4 sm:px-6 md:px-8 lg:px-18 mt-8 sm:mt-10 pt-4 sm:pt-6 border-t ${isDark ? "border-white/10" : "border-slate-200/60"}`}>
+        <div className={`font-mono text-[10px] sm:text-xs flex flex-wrap items-center gap-1.5 sm:gap-2 ${isDark ? "text-gray-600" : "text-slate-400"}`}>
+          <span className="text-teal-400">$</span>
+          <span className="text-cyan-400">./list_projects.sh</span>
+          <span className="hidden sm:inline">--filter=live</span>
+          <span className={`hidden sm:inline ${isDark ? "text-gray-700" : "text-slate-300"}`}>|</span>
+          <span className="hidden sm:inline text-teal-400">grep</span>
+          <span className="hidden sm:inline">&quot;status=deployed&quot;</span>
+          <span className="animate-pulse text-teal-400">_</span>
+        </div>
+      </div>
     </section>
   );
 };
