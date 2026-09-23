@@ -20,27 +20,39 @@ const isAdminHash = (hash) => {
   return clean === "admin" || clean === "login";
 };
 
+const PageLoader = ({ isDark }) => (
+  <div
+    className={`fixed inset-0 z-[100] grid place-items-center overflow-hidden ${isDark ? "bg-[#0c0e14] text-white" : "bg-[#f8fafc] text-slate-900"}`}
+    role="status"
+    aria-live="polite"
+    aria-label="Loading portfolio"
+  >
+    <div className="absolute inset-0 opacity-40" aria-hidden="true">
+      <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-500/15 blur-3xl" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(20,184,166,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(20,184,166,0.035)_1px,transparent_1px)] bg-[size:36px_36px]" />
+    </div>
+    <div className="relative flex flex-col items-center">
+      <div className="relative grid h-32 w-32 place-items-center" aria-hidden="true">
+        <div className="absolute inset-2 rounded-full border border-dashed border-teal-400/50 animate-[spin_12s_linear_infinite]" />
+        <div className="absolute inset-5 rounded-full border border-cyan-400/30 animate-[spin_8s_linear_infinite_reverse]" />
+        <div className="absolute h-16 w-16 rotate-45 rounded-2xl border border-teal-300/70 bg-teal-400/10 shadow-[0_0_40px_rgba(45,212,191,0.2)] animate-pulse" />
+        <span className="relative font-mono text-2xl font-bold tracking-tight text-teal-400">DR</span>
+        <span className="absolute right-3 top-7 h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(103,232,249,0.9)]" />
+      </div>
+      <p className="mt-5 font-mono text-[11px] uppercase tracking-[0.3em] text-teal-500 dark:text-teal-300">Preparing portfolio</p>
+      <div className={`mt-4 h-px w-40 overflow-hidden ${isDark ? "bg-white/10" : "bg-slate-300"}`} aria-hidden="true">
+        <div className="h-full w-1/2 animate-[loader-scan_1.4s_ease-in-out_infinite] bg-teal-400 shadow-[0_0_10px_rgba(45,212,191,0.9)]" />
+      </div>
+    </div>
+  </div>
+);
+
 const AppContent = () => {
   const { isDark } = useTheme();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading } = useAuth();
   const [isAdminView, setIsAdminView] = useState(() =>
     isAdminHash(window.location.hash)
   );
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollTop;
-      const windowHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scroll = windowHeight > 0 ? (totalScroll / windowHeight) * 100 : 0;
-      setScrollProgress(scroll);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -68,6 +80,8 @@ const AppContent = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  if (isLoading) return <PageLoader isDark={isDark} />;
+
   // Render Admin View if on #admin or #login route
   if (isAdminView) {
     if (isAuthenticated) {
@@ -83,16 +97,6 @@ const AppContent = () => {
         isDark ? "bg-[#0c0e14] text-neutral-100" : "bg-[#f8fafc] text-slate-800"
       }`}
     >
-      {/* Scroll Progress Bar at the very top */}
-      <div
-        className="fixed top-0 left-0 right-0 h-[3px] z-[60] origin-left bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 shadow-sm shadow-teal-400/30 transition-[width] duration-75 ease-out"
-        style={{ width: `${scrollProgress}%` }}
-        role="progressbar"
-        aria-valuenow={Math.round(scrollProgress)}
-        aria-valuemin={0}
-        aria-valuemax={100}
-      />
-
       {/* Ambient background glows */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
         <div
@@ -115,7 +119,7 @@ const AppContent = () => {
       <Navbar />
       <SocialIcon />
 
-      <main className="relative z-10 pt-18">
+      <main className="relative z-10 pt-6 sm:pt-18">
         <Home />
         <About />
         <Skills />

@@ -3,9 +3,11 @@ import { useTheme } from "../context/ThemeContext";
 import { LuLock, LuArrowUp, LuHeart } from "react-icons/lu";
 import logoWhite from "../assets/logowhite.png";
 import logoDark from "../assets/logodark.png";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const Footer = ({ onNavigateToAdmin }) => {
   const { isDark } = useTheme();
+  const [footerRef, footerVisible] = useScrollReveal(0.05);
 
   const handleAdminClick = () => {
     if (onNavigateToAdmin) {
@@ -33,7 +35,10 @@ const Footer = ({ onNavigateToAdmin }) => {
 
   return (
     <footer
-      className={`border-t transition-colors duration-300 ${
+      ref={footerRef}
+      className={`border-t transition-all duration-700 ease-out ${
+        footerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+      } ${
         isDark
           ? "border-white/10 bg-[#090b0f] text-neutral-400"
           : "border-slate-200 bg-slate-50 text-slate-600"
@@ -97,7 +102,7 @@ const Footer = ({ onNavigateToAdmin }) => {
         </div>
 
         {/* Bottom copyright & admin */}
-        <div className="py-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-neutral-500 text-center sm:text-left">
+        <div className="pb-20 pt-2 sm:py-2 sm:py-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-neutral-500 text-center sm:text-left">
           <p>
             &copy; {new Date().getFullYear()} Dharmendra Kumar Ram. All rights reserved.
           </p>

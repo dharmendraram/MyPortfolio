@@ -1,16 +1,24 @@
 import React from "react";
 import { useExperience } from "../context/ExperienceContext";
 import { useTheme } from "../context/ThemeContext";
-import {
-  LuBriefcase,
-  LuCalendar,
-  LuBuilding2,
-  LuGraduationCap,
-} from "react-icons/lu";
+import { LuBriefcase, LuCalendar, LuBuilding2, LuGraduationCap } from "react-icons/lu";
+import { useScrollReveal } from "../hooks/useScrollReveal";
+
+const ExperienceDesc = ({ text, isDark }) => {
+  return (
+    <p className={`text-sm sm:text-base leading-relaxed mb-5 ${isDark ? "text-neutral-300" : "text-slate-600"}`}>
+      {text}
+    </p>
+  );
+};
 
 const Experience = () => {
   const { isDark } = useTheme();
   const { experiences } = useExperience();
+  const [headerRef, headerVisible] = useScrollReveal(0.1);
+  const [timelineRef, timelineVisible] = useScrollReveal(0.05);
+
+  const subText = "A chronological record of professional software engineering roles, enterprise systems delivery, and academic foundation.";
 
   return (
     <section
@@ -19,35 +27,45 @@ const Experience = () => {
     >
       <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12 md:mb-16">
+        <div
+          ref={headerRef}
+          className={`mb-10 sm:mb-12 md:mb-16 transition-all duration-700 ease-out ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="font-mono text-[10px] sm:text-xs text-gray-500 mb-2">
             <span className="text-teal-400">$</span>{" "}
             <span className="text-cyan-400">cat</span> experience.json
           </div>
           <h2 className={`font-mono text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight ${isDark ? "text-white" : "text-slate-900"}`}>
             Engineering journey &{" "}
-            <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="text-teal-500 dark:text-teal-400">
               academic track.
             </span>
           </h2>
           <p className={`mt-3 text-sm sm:text-base max-w-xl ${isDark ? "text-neutral-400" : "text-slate-600"}`}>
-            A chronological record of professional software engineering roles, enterprise systems delivery, and academic foundation.
+            {subText}
           </p>
         </div>
 
         {/* Timeline Container */}
-        <div className="relative pl-6 sm:pl-10 lg:pl-12 border-l-2 border-teal-500/30 space-y-12 ml-4 sm:ml-8 lg:ml-12">
+        <div ref={timelineRef} className="relative pl-6 sm:pl-10 lg:pl-12 border-l-2 border-teal-500/30 space-y-12 ml-4 sm:ml-8 lg:ml-12">
           {experiences.map((exp, index) => {
             const isEducation =
               exp.title?.toLowerCase().includes("bachelor") ||
               exp.title?.toLowerCase().includes("bca") ||
               exp.company?.toLowerCase().includes("college") ||
               exp.company?.toLowerCase().includes("university");
-
             const isCurrent = exp.period?.toLowerCase().includes("present");
 
             return (
-              <div key={exp.id || index} className="relative group">
+              <div
+                key={exp.id || index}
+                style={{ transitionDelay: timelineVisible ? `${index * 120}ms` : "0ms" }}
+                className={`relative group transition-all duration-700 ease-out ${
+                  timelineVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                }`}
+              >
                 {/* Timeline Marker Node */}
                 <div
                   className={`absolute -left-[31px] sm:-left-[47px] lg:-left-[55px] top-1.5 w-10 h-10 rounded-2xl flex items-center justify-center border transition-all duration-300 shadow-md ${
@@ -110,13 +128,7 @@ const Experience = () => {
                   </div>
 
                   {/* Description */}
-                  <p
-                    className={`text-sm sm:text-base leading-relaxed mb-5 ${
-                      isDark ? "text-neutral-300" : "text-slate-600"
-                    }`}
-                  >
-                    {exp.description}
-                  </p>
+                        <ExperienceDesc text={exp.description} isDark={isDark} />
 
                   {/* Skills/Technologies Micro-badges */}
                   {Array.isArray(exp.skills) && exp.skills.length > 0 && (

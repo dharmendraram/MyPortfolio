@@ -8,6 +8,11 @@
   100% { background-position: 200% 0; }
 }
 
+@keyframes loader-scan {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(210%); }
+}
+
 :root {
   --bg-primary: #202020;
   --bg-secondary: #ffffff;

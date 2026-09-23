@@ -6,6 +6,7 @@ import * as FramerMotion from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const FilmHoles = ({ frameNumber, bottom = false }) => (
   <div className="film-holes" aria-hidden="true">
@@ -22,6 +23,9 @@ const Portfolio = () => {
   const { projects: portfolioItems } = usePortfolio();
   const [selectedItem, setSelectedItem] = useState(null);
   const { isDark } = useTheme();
+  const [headerRef, headerVisible] = useScrollReveal(0.1);
+  const [reelRef, reelVisible] = useScrollReveal(0.05);
+  const subText = "A selection of projects across government, healthcare, and modern web platforms.";
 
   const handleCardClick = (item) => {
     setSelectedItem(item);
@@ -35,32 +39,36 @@ const Portfolio = () => {
     <section id="portfolio" className="py-10 border-t border-[#444]">
       <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-18">
        {/* Section header */}
-        <div className="mb-5 sm:mb-5 md:mb-5">
+        <div
+          ref={headerRef}
+          className={`mb-5 sm:mb-5 md:mb-5 transition-all duration-700 ease-out ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="font-mono text-[10px] sm:text-xs text-gray-500 mb-2">
             <span className="text-green-500">$</span>{" "}
             <span className="text-blue-400">cat</span> portfolio.json
           </div>
           <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
             Selected{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-teal-500 bg-clip-text text-transparent">
+            <span className="text-teal-500 dark:text-teal-400">
               Work
             </span>
           </h2>
-           <p
-          className={` ${
-            isDark ? "text-neutral-400" : "text-gray-600"
-          }`}
-        >
-          A curated selection of digital products, platforms, and experiences I’ve helped bring to life.
-        </p>
+          <p className={`${isDark ? "text-neutral-400" : "text-gray-600"}`}>
+            {subText}
+          </p>
 
         </div>
         </div>
       <div className="mx-auto container">
-        
-      
         {/* Cinematic film-reel carousel */}
-        <div className={`portfolio-reel ${isDark ? "portfolio-reel--dark" : "portfolio-reel--light"}`}>
+        <div
+          ref={reelRef}
+          className={`portfolio-reel ${isDark ? "portfolio-reel--dark" : "portfolio-reel--light"} transition-all duration-700 ease-out ${
+            reelVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <div className="portfolio-reel-fade portfolio-reel-fade--left" />
           <div className="portfolio-reel-fade portfolio-reel-fade--right" />
 

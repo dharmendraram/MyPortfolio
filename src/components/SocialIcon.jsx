@@ -44,7 +44,7 @@ const SocialIcon = () => {
   return (
     <aside
       aria-label="Social media channels"
-      className="fixed z-40 right-3.5 bottom-6 sm:right-6 sm:bottom-8"
+      className="fixed z-40 right-3.5 bottom-20 sm:right-6 sm:bottom-8"
     >
       <div
         className={`flex flex-col gap-2 p-1.5 rounded-full border backdrop-blur-xl shadow-xl transition-all duration-300 ${

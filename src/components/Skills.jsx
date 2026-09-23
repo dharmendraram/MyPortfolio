@@ -1,6 +1,7 @@
 import React from "react";
 import { skillsData } from "../data/data";
 import { LuTerminal, LuDatabase, LuCode, LuWrench, LuLayers } from "react-icons/lu";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 
 const categoryIcons = {
   "Backend Development": <LuTerminal className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />,
@@ -28,23 +29,23 @@ const SkillBar = ({ item }) => (
     </div>
     <div className="relative h-1 bg-white/5 overflow-hidden">
       <div
-        className="absolute h-full bg-gradient-to-r from-blue-500 via-teal-500 to-blue-500 opacity-50 blur-sm"
+        className="absolute h-full bg-teal-500 opacity-50 blur-sm"
         style={{ width: `${item.level}%` }}
       />
       <div
-        className="relative h-full bg-gradient-to-r from-blue-500 to-teal-500"
+        className="relative h-full bg-teal-500"
         style={{ width: `${item.level}%` }}
-      >
-        <div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer_2s_infinite]"
-          style={{ backgroundSize: "200% 100%" }}
-        />
-      </div>
+      />
     </div>
   </div>
 );
 
 const Skills = () => {
+  const [headerRef, headerVisible] = useScrollReveal(0.1);
+  const [gridRef, gridVisible] = useScrollReveal(0.05);
+
+  const subText = "A curated overview of my core technical stack, tools, and proficiency levels across full-stack development.";
+
   return (
     <section
       id="skills"
@@ -60,25 +61,36 @@ const Skills = () => {
 
       <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         {/* Section header */}
-        <div className="mb-10 sm:mb-12 md:mb-10">
+        <div
+          ref={headerRef}
+          className={`mb-10 sm:mb-12 md:mb-10 transition-all duration-700 ease-out ${
+            headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="font-mono text-[10px] sm:text-xs text-gray-500 mb-2">
             <span className="text-green-500">$</span>{" "}
             <span className="text-blue-400">cat</span> skills.json
           </div>
           <h2 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
             Technical{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-teal-500 bg-clip-text text-transparent">
+            <span className="text-teal-500 dark:text-teal-400">
               Skills
             </span>
           </h2>
+          <p className="mt-3 text-sm sm:text-base max-w-2xl text-gray-400">
+            {subText}
+          </p>
         </div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
-          {skillsData.map((category) => (
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+          {skillsData.map((category, i) => (
             <div
               key={category.title}
-              className="group relative bg-black border border-white/10 hover:border-blue-500/50 transition-all duration-300"
+              style={{ transitionDelay: gridVisible ? `${i * 100}ms` : "0ms" }}
+              className={`group relative bg-black border border-white/10 hover:border-blue-500/50 transition-all duration-500 ${
+                gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
             >
               {/* Corner accents */}
               <div className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />

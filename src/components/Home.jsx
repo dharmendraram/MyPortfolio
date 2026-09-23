@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { useScrollReveal } from "../hooks/useScrollReveal";
 import HeadingHero from "../utils/HeadingHero";
 import { useTheme } from "../context/ThemeContext";
 import user from "../assets/hero/pic3.png";
@@ -33,25 +34,26 @@ const ImageWithGlow = ({ user }) => {
       onMouseLeave={() => setIsHovered(false)}
       className="relative w-72 h-72 sm:w-88 sm:h-88 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px] flex items-center justify-center group"
     >
-      {/* Outer ambient glow */}
-      <div
-        className="absolute inset-0 rounded-full blur-2xl opacity-40 group-hover:opacity-75 transition-opacity duration-700 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(20,184,166,0.5) 0%, rgba(6,182,212,0.3) 40%, transparent 70%)",
-        }}
-      />
-
-      {/* Interactive cursor glow */}
-      {isHovered && (
+      {/* Keep both hover glows clipped inside the outer ring. */}
+      <div className="absolute inset-2 rounded-full overflow-hidden pointer-events-none">
         <div
-          className="pointer-events-none absolute w-48 h-48 rounded-full bg-teal-400/30 blur-xl transition-opacity duration-300 z-10"
+          className="absolute inset-0 rounded-full blur-2xl opacity-40 group-hover:opacity-75 transition-opacity duration-700"
           style={{
-            top: position.y - 96,
-            left: position.x - 96,
+            background:
+              "radial-gradient(circle, rgba(20,184,166,0.5) 0%, rgba(6,182,212,0.3) 40%, transparent 70%)",
           }}
         />
-      )}
+
+        {isHovered && (
+          <div
+            className="absolute w-48 h-48 rounded-full bg-teal-400/30 blur-xl transition-opacity duration-300"
+            style={{
+              top: position.y - 104,
+              left: position.x - 104,
+            }}
+          />
+        )}
+      </div>
 
       {/* Orbital decorative ring */}
       <div className="absolute inset-2 rounded-full border border-dashed border-teal-500/30 animate-[spin_35s_linear_infinite] pointer-events-none" />
@@ -69,17 +71,9 @@ const ImageWithGlow = ({ user }) => {
         </div>
       </div>
 
-      {/* Floating Badges */}
-      <div className="absolute -bottom-2 -left-2 z-20 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl backdrop-blur-md bg-white/80 dark:bg-[#12161f]/90 border border-teal-500/30 shadow-lg shadow-black/10">
-        <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
-        <span className="text-xs font-semibold tracking-tight text-slate-800 dark:text-neutral-200">
-          Full-Stack @ NIRC
-        </span>
-      </div>
 
       <div className="absolute top-4 -right-2 z-20 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl backdrop-blur-md bg-white/80 dark:bg-[#12161f]/90 border border-cyan-500/30 shadow-lg shadow-black/10">
-        <LuSparkles className="text-cyan-400 text-xs" />
-        <span className="text-xs font-semibold tracking-tight text-slate-800 dark:text-neutral-200">
+        <span className="text-sm font-semibold tracking-tight text-slate-800 dark:text-neutral-200">
           2+ Yrs Experience
         </span>
       </div>
@@ -89,6 +83,9 @@ const ImageWithGlow = ({ user }) => {
 
 const Home = () => {
   const { isDark } = useTheme();
+
+  const [heroRef, heroVisible] = useScrollReveal(0.15);
+  const [statsRef, statsVisible] = useScrollReveal(0.15);
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -108,7 +105,12 @@ const Home = () => {
       className="relative min-h-[calc(100vh-4.5rem)] flex flex-col justify-center pt-8 pb-10  overflow-hidden"
     >
       <div className="relative z-10 px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8">
+        <div
+          ref={heroRef}
+          className={`flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 transition-all duration-700 ease-out ${
+            heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           {/* Left Narrative Column */}
           <div className="flex-1 text-center lg:text-left">
             
@@ -118,7 +120,8 @@ const Home = () => {
               <span className="text-cyan-400">whoami</span>
             </div>
             <h1 className="font-mono text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-slate-900 dark:text-white">
-              Dharmendra <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">Kumar Ram</span>
+              Dharmendra{" "}
+              <span className="text-teal-500 dark:text-teal-400">Kumar Ram</span>
             </h1>
 
             {/* Dynamic Role Subheading */}
@@ -134,11 +137,9 @@ const Home = () => {
             >
               Full-Stack Developer at{" "}
               <span className="font-semibold text-teal-500 dark:text-teal-400">
-                National Incubation & Research Center (NIRC)
+                National Incubation &amp; Research Center (NIRC)
               </span>
-              . Architecting robust, scalable web applications, enterprise healthcare
-              systems, government platforms, and performant user interfaces with
-              modern full-stack technologies.
+              . Architecting robust, scalable web applications, enterprise healthcare systems, government platforms, and performant user interfaces with modern full-stack technologies.
             </p>
 
             {/* Call to Action Buttons */}
@@ -146,7 +147,7 @@ const Home = () => {
               <button
                 type="button"
                 onClick={() => scrollToSection("portfolio")}
-                className="group px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-600 text-white font-medium text-sm shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                className="group px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 via-teal-600 to-cyan-600 text-white font-medium text-sm shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40  active:scale-[0.98] transition-all duration-200 flex items-center gap-2 cursor-pointer"
               >
                 <span>Explore Selected Work</span>
                 <LuArrowRight className="text-base group-hover:translate-x-1 transition-transform" />
@@ -187,7 +188,12 @@ const Home = () => {
         </div>
 
         {/* High-Impact Hero Stats Strip */}
-        <div className="mt-14 pt-10 border-t border-slate-200/60 dark:border-white/10">
+        <div
+          ref={statsRef}
+          className={`mt-14 pt-10 border-t border-slate-200/60 dark:border-white/10 transition-all duration-700 ease-out delay-200 ${
+            statsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div
               className={`p-5 rounded-2xl border backdrop-blur-md transition-all duration-300 hover:-translate-y-1 ${
